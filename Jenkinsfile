@@ -5,8 +5,7 @@ pipeline {
         options { skipDefaultCheckout() }
             stages {
                     stage('1. Collect information') {
-                    	steps {
-           		}
+		steps {
            	 }
             }
        }
