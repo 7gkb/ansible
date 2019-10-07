@@ -3,7 +3,7 @@
 timestamps {
 	stage ("Collect information") {
 		node('master') {
-		echo ${WORKSPACE}
+		echo env.WORKSPACE
 		sh('printenv | sort')
 		}
 	}
