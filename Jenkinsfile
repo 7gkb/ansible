@@ -1,13 +1,11 @@
 #! groovy
 
 pipeline {
-    agent { label 'build'}
-        options { skipDefaultCheckout() }
+    agent { label 'master'}
             stages {
                     stage('1. Collect information') {
-		steps {
-           	 }
-            }
-       }
-   }
+			steps {
+           		 }
+		}
+	}
 }
