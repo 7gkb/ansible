@@ -3,8 +3,13 @@
 timestamps {
 	stage ("Collect information") {
 		node('master') {
-		echo env.WORKSPACE
-		sh('printenv | sort')
+			stage ('Collect_') {
+				echo env.WORKSPACE
+				sh('printenv | sort')
+			}
+			stage ('GIT') {
+				echo "test git"
+			}
 		}
 	}
 }
