@@ -1,7 +1,7 @@
 #! groovy
 
 timestamps {
-	stage ("Calculate test scope using $ParallelThreads threads") {
+	stage ("Collect information") {
 		node('master') {
 
 		}
