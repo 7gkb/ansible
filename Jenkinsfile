@@ -1,11 +1,9 @@
 #! groovy
 
-pipeline {
-    agent { label 'master'}
-            stages {
-                    stage('1. Collect information') {
-			steps {
-           		 }
+timestamps {
+	stage ("Calculate test scope using $ParallelThreads threads") {
+		node('master') {
+
 		}
 	}
 }
