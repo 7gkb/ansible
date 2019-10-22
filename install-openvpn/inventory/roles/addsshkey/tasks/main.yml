@@ -1,0 +1,8 @@
+---
+# tasks file for addsshkey
+- name: Set up authorized_keys for the root user
+  authorized_key:
+     user: "{{ ansible_user }}"
+     state: present
+     key: "{{ addsshkey_openkey }}"
+  become: yes

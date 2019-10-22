@@ -1,0 +1,13 @@
+[Unit] 
+Description=openvpn client connection
+After=syslog.target network.target 
+ 
+[Service] 
+Type=forking 
+PIDFile=/var/run/srv1cv83.pid 
+ExecStart=/bin/sh /etc/rc.d/init.d/srv1cv83 start 
+ExecReload=/bin/sh /etc/rc.d/init.d/srv1cv83 restart 
+ExecStop=/bin/sh /etc/rc.d/init.d/srv1cv83 stop 
+ 
+[Install] 
+WantedBy=multi-user.target

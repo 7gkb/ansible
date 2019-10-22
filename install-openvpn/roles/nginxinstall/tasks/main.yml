@@ -1,0 +1,24 @@
+---
+# tasks file for nginxinstall
+- name: Install packages for Ubuntu or Debian
+  apt:
+   pkg: "{{ nginxinstall_ubuntupackages }}"
+   state: present
+  become: yes
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+  
+- name: Add repository for nginx
+  template: src="{{ item }}.j2" dest="/{{ item }}"
+  with_items:
+   - "etc/yum.repos.d/nginx.repo"
+  become: yes
+  when: ansible_distribution == 'Centos'
+  notify:
+   - Update system
+- name: Install packages for Centos
+  yum:
+   name: "{{ nginxinstall_centospackages }}"
+   state: present
+  become: yes
+  when: ansible_distribution == 'Centos'
+  

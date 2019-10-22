@@ -1,0 +1,16 @@
+---
+# vars file for nginxinstall
+nginxinstall_ubuntupackages:
+ - nginx
+ 
+nginxinstall_centospackages:
+ - php-common
+ - php-fpm
+ - php-pecl-memcache
+ - php-gd
+ - php-mbstring
+ - php-mysqlnd
+ - php-pdo
+ - nginx
+ - mariadb-server=5.5.60
+ 

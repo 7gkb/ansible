@@ -1,0 +1,12 @@
+---
+# tasks file for openvpn_client
+- name: Install openvpn client
+  apt: pkg={{ item }} state=latest
+  with_items:
+  - openvpn
+
+- name: Configure openvpn client
+  template: src=client.conf.j2 dest=/etc/openvpn/client.conf
+  notify:
+  - Start openvpn client
+  - Enable service openvpn client

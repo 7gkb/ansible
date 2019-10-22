@@ -1,0 +1,7 @@
+---
+- name: Install openvpn client to {{ hosts_openvpn_client }}
+  hosts: hosts_openvpn_client
+  become: yes
+  
+  roles:
+   - { role: openvpn_client, when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial' }
