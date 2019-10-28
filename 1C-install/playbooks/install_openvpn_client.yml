@@ -1,8 +1,8 @@
 ---
-#- name: Install openvpn client to {{ hosts_openvpn_client }}
+#- name: Install 1C client to {{ hosts_1C_client }}
 - hosts: bananapi
 #  become: yes
   roles:
-    - openvpn_client
-#    - role: openvpn_client
+    - 1C-Install_think-client
+#    - role: 1C_client
 #      when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial'

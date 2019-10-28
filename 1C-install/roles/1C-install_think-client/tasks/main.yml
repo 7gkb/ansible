@@ -1,2 +1,16 @@
 ---
 # tasks file for 1C-install_think-client
+- name: Install 1C client
+  apt:
+   deb: /path/to/packed.deb
+   dpkg_options: 'extract'
+  become: yes
+
+- name: Configure openvpn client
+  template: src="{{ item }}.j2" dest="/{{ item }}"
+  with_items:
+   - "etc/openvpn/client.conf"
+  become: yes
+  notify:
+   - Start openvpn client
+   - Enable service openvpn client

@@ -1,0 +1,7 @@
+---
+- name: Install 1C client to {{ hosts_openvpn_client }}
+  hosts: hosts_1C_client
+  become: yes
+  
+  roles:
+   - { role: 1C_client, when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial' }
