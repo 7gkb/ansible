@@ -1,11 +1,10 @@
 # {{ ansible_managed }}
 # Архитектура системы
-ARCH="amd64"#{{ install_think_client_arch }} #amd64
+ARCH={{ install_think_client_arch }}
 PKG_ARCH=`echo $ARCH | sed -e 's/amd/deb/g'`
 
 # Имя пакета
-NAME="1c-enterprise83" #{{ install_think_client_name }} # "1c-enterprise83"
-
+NAME={{ install_think_client_name }}
 # список пакетов
 applist=$(find ./ -name "$NAME-thin-client*.deb")
 for pkgapp in $applist
@@ -17,7 +16,7 @@ for pkgapp in $applist
     # Распаковка пакетов
     dpkg -x "$pkgapp" .
     # Генерация файла .desktop
-    DESKTOPFILE="1cestart.$VERSION.desktop"
+    DESKTOPFILE="1cstart.$VERSION.desktop"
     touch "$DESKTOPFILE"
 
     echo "[Desktop Entry]" >> "$DESKTOPFILE"
