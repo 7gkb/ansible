@@ -1,7 +1,10 @@
 ---
-- name: Install 1C client to {{ hosts_openvpn_client }}
-  hosts: hosts_1C_client
+- name: Install 1C client to # {{ sandbox }}
+  hosts: sanbox
   become: yes
   
   roles:
-   - { role: 1C_client, when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial' }
+    - 1C-install_think-client
+  #  - 1C-Install_think-client
+  # - { role: 1C_client, when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial' }
+

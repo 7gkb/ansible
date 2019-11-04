@@ -1,2 +1,4 @@
 ---
 # vars file for 1C-install_think-client
+install_think_client_arch: amd64
+install_think_client_name: "1c-enterprise83"

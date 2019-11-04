@@ -1,3 +1,6 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+
 [hosts_openvpn_client]
 host1 ansible_host=192.168.0.1
 host2 ansible_host=192.168.0.2
@@ -5,3 +8,9 @@ host3 ansible_host=192.168.2.1
 
 [bananapi]
 ansible_host=192.168.0.1
+
+[sandbox]
+sandbox1 ansible_host=192.168.1.178
+
+[sandbox:vars]
+ansible_python_interpreter=/usr/bin/python3
