@@ -1,8 +1,5 @@
 ---
-#- name: Install 1C client to {{ hosts_1C_client }}
 - hosts: sandbox
-#  become: yes
   roles:
-    - 1C-install_think-client
-#    - role: 1C_client
-#      when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial'
+    - role: 1C-install_think-client
+      when: ansible_distribution == 'Ubuntu'

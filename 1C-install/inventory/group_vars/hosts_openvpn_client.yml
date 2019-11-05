@@ -1,3 +1,0 @@
---- 
-ansible_user: USERNAME
-ansible_ssh_pass: PASSWORD

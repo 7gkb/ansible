@@ -1,34 +1,31 @@
 # {{ ansible_managed }}
-# Архитектура системы
+
 ARCH={{ install_think_client_arch }}
 PKG_ARCH=`echo $ARCH | sed -e 's/amd/deb/g'`
-
-# Имя пакета
 NAME={{ install_think_client_name }}
-# список пакетов
+
 applist=$(find ./ -name "$NAME-thin-client*.deb")
 for pkgapp in $applist
     do
+        VERSION=`ls $pkgapp | head -1 | sed -e 's/'_"$ARCH"'//g' -e 's/^.*client_//g' -e 's/\.[^.]*$//'`
+        dpkg -x "$pkgapp" .
+        DESKTOPFILE="1c-start.$VERSION.desktop"
 
-    # Извлечение версии пакета из имени
-    VERSION=`ls $pkgapp | head -1 | sed -e 's/'_"$ARCH"'//g' -e 's/^.*client_//g' -e 's/\.[^.]*$//'`
+        cat <<EOF > "$DESKTOPFILE"
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/1C/v"$VERSION"/x86_64/1cv8c
+Categories=Office;Finance;
+Name[ru_RU]=1C:Предприятие $VERSION
+Name=1C:Enterprise $VERSION
+Icon=Icon=/usr/share/icons/hicolor/48x48/apps/1cv8c.png
+EOF
 
-    # Распаковка пакетов
-    dpkg -x "$pkgapp" .
-    # Генерация файла .desktop
-    DESKTOPFILE="1cstart.$VERSION.desktop"
-    touch "$DESKTOPFILE"
-
-    echo "[Desktop Entry]" >> "$DESKTOPFILE"
-    echo "Version=1.0" >> "$DESKTOPFILE"
-    echo "Type=Application" >> "$DESKTOPFILE"
-    echo "Terminal=false" >> "$DESKTOPFILE"
-    echo "Exec=/opt/1C/v"$VERSION"/x86_64/1cestart" >> "$DESKTOPFILE"
-    echo "Categories=Office;Finance;" >> "$DESKTOPFILE"
-    echo "Name[ru_RU]=1C:Предприятие "$VERSION >> "$DESKTOPFILE"
-    echo "Name=1C:Enterprise "$VERSION >> "$DESKTOPFILE"
-    echo "Icon=1cestart" >> "$DESKTOPFILE"
-
-    sudo mv "opt/1C/v8.3" "/opt/1C/"v$VERSION
-    sudo desktop-file-install "1cestart.$VERSION.desktop"
+        mkdir -p /opt/1C
+        mv -T "opt/1C/v8.3" "/opt/1C/"v$VERSION
+        cp -uR usr/share/icons/hicolor /usr/share/icons
+        desktop-file-install "1c-start.$VERSION.desktop"
+        chown {{ ansible_user }}:{{ ansible_user }} "/home/{{ ansible_user }}/Рабочий\ стол/1cstart.$VERSION.desktop"
 done
