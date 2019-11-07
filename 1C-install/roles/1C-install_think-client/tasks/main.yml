@@ -21,7 +21,7 @@
   template: src="home/admingkb7/install/automation.sh.j2" dest="/home/{{ ansible_user }}/install/automation.sh"
   become: yes
 
-- name: Execute the command in remote shell.
+- name: Unpack and install 1C client
   shell: sh automation.sh
   args:
     chdir: /home/{{ ansible_user }}/install/

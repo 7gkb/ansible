@@ -9,5 +9,9 @@ install_think_client_listpackages:
 
 install_think_client_listprepare:
   - ttf-mscorefonts-installer
-#  - libwebkitgtk-1.0-0
-#  - libwebkit2gtk-4.0-37
+  - imagemagick
+  - libfreetype6
+  - libgsf-1-114
+  - libglib2.0-0
+  - unixodbc
+  - libwebkitgtk-1.0-0
