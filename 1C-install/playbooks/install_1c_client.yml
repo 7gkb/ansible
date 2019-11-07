@@ -1,5 +1,5 @@
 ---
-- hosts: hosts_install_1c
+- hosts: terminal
   roles:
     - role: 1C-install_think-client
-      when: ansible_distribution == 'Ubuntu'
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'

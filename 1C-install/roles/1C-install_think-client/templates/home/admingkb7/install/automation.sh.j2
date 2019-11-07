@@ -26,6 +26,6 @@ EOF
         mkdir -p /opt/1C
         mv -T -f "opt/1C/v8.3" "/opt/1C/"v$VERSION
         cp -uR usr/share/icons/hicolor /usr/share/icons
-        desktop-file-install "1c-start.$VERSION.desktop"
+        su - {{ ansible_user }} -c desktop-file-install "1c-start.$VERSION.desktop"
         chown {{ ansible_user }}:{{ ansible_user }} /home/{{ ansible_user }}/Рабочий\ стол/1cstart.$VERSION.desktop
 done
