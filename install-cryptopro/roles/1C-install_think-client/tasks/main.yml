@@ -1,0 +1,41 @@
+---
+# tasks file for 1C-install_think-client
+- name: Copy files
+  copy: 
+    src: "{{ item }}"
+    dest: /home/{{ ansible_user }}/install/
+  with_items:
+    - "{{ install_think_client_listpackages }}"
+  become: yes
+
+- name: Prepare for install 1C client
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    force: yes
+  with_items:
+    - "{{ install_think_client_listprepare }}"
+  become: yes
+
+- name: Add automation file
+  template: src="home/admingkb7/install/automation.sh.j2" dest="/home/{{ ansible_user }}/install/automation.sh"
+  become: yes
+
+- name: Execute the command in remote shell.
+  shell: sh automation.sh
+  args:
+    chdir: /home/{{ ansible_user }}/install/
+  become: yes
+
+- name: Fix install 1C client
+  apt:
+    update_cache: yes
+    dpkg_options: fix-broken
+    force: yes
+  become: yes
+
+- name: Remove install folder
+  file: 
+    path: /home/{{ ansible_user }}/install 
+    state: absent
+  become: yes

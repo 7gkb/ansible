@@ -1,0 +1,5 @@
+---
+- hosts: sandbox
+  roles:
+    - role: 1C-install_think-client
+      when: ansible_distribution == 'Ubuntu'
