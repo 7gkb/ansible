@@ -1,0 +1,7 @@
+---
+# tasks file for changeip
+- name: Update ip-addresses
+  shell: nmcli connection modify "NETWORK" ipv4.addresses {{ ansible_host }}/23
+#  args:
+#    chdir: /home/{{ ansible_user }}/install/
+  become: yes

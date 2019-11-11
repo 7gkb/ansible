@@ -1,0 +1,8 @@
+---
+# vars file for addaptconf
+addaptconf_pathtoconf:
+  - /etc/apt/apt.conf.d
+
+addaptconf_addresstoserver:
+#  - 192.168.1.50
+  - 192.168.5.250

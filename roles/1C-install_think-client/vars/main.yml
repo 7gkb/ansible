@@ -1,0 +1,18 @@
+---
+# vars file for 1C-install_think-client
+install_think_client_arch: amd64
+install_think_client_name: "1c-enterprise83"
+
+install_think_client_listpackages:
+  - 1c-enterprise83-thin-client_8.3.10-2639_amd64.deb
+  - 1c-enterprise83-thin-client_8.3.13-1644_amd64.deb
+
+install_think_client_listprepare:
+  - ttf-mscorefonts-installer
+  - imagemagick
+  - libfreetype6
+  - libgsf-1-114
+  - libglib2.0-0
+  - unixodbc
+  - libwebkitgtk-1.0-0
+  
