@@ -1,5 +1,0 @@
----
-- hosts: sandbox
-  roles:
-    - role: installcryptopro
-      when: ansible_distribution == 'Ubuntu'

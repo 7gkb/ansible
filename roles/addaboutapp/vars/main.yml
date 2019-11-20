@@ -1,0 +1,5 @@
+---
+# vars file for addaboutapp
+addaboutapp_script: about.sh
+addaboutapp_desktopfile: about.sh.desktop
+addaboutapp_pathtolaunch: /home/{{ ansible_user }}/.config/mate/panel2.d/default/launchers

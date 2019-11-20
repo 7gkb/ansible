@@ -1,12 +1,13 @@
 ---
 # tasks file for 1C-install_think-client
 - name: Copy files
-  copy: 
-    src: "{{ item }}"
+  copy:
+    src: src
+##    src: "{{ item }}"
     dest: /home/{{ ansible_user }}/install/
-  with_items:
-    - "{{ install_think_client_listpackages }}"
-  become: yes
+#    recursive: yes
+##  with_items:
+##    - "{{ install_think_client_listpackages }}"
 
 - name: Prepare for install 1C client
   apt:
@@ -18,8 +19,9 @@
   become: yes
 
 - name: Add automation file
-  template: src="home/admingkb7/install/automation.sh.j2" dest="/home/{{ ansible_user }}/install/automation.sh"
-  become: yes
+  template: 
+    src: "home/admingkb7/install/automation.sh.j2"
+    dest: "/home/{{ ansible_user }}/install/automation.sh"
 
 - name: Unpack and install 1C client
   shell: sh automation.sh
@@ -39,4 +41,3 @@
     path: /home/{{ ansible_user }}/install 
     state: absent
   become: yes
-  

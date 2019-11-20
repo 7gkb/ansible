@@ -6,6 +6,7 @@ install_think_client_name: "1c-enterprise83"
 install_think_client_listpackages:
   - 1c-enterprise83-thin-client_8.3.10-2639_amd64.deb
   - 1c-enterprise83-thin-client_8.3.13-1644_amd64.deb
+  - 1c-enterprise83-thin-client_8.3.12-1714_amd64.deb
 
 install_think_client_listprepare:
   - ttf-mscorefonts-installer
@@ -15,4 +16,3 @@ install_think_client_listprepare:
   - libglib2.0-0
   - unixodbc
   - libwebkitgtk-1.0-0
-  

@@ -1,6 +1,0 @@
----
-- name: Install openvpn client
-  hosts: hosts_openvpn_client
-  roles:
-    - role: openvpnclient
-      when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial'

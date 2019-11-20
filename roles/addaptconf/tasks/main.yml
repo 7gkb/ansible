@@ -2,6 +2,6 @@
 # tasks file for addaptconf
 - name: Add config file
   template: 
-    src: "{{ addaptconf_pathtoconf }}/01proxy.j2" 
-    dest: "{{ addaptconf_pathtoconf }}/01proxy"
+    src: "{{ addaptconf_pathtoconf }}.j2" 
+    dest: "/{{ addaptconf_pathtoconf }}"
   become: yes

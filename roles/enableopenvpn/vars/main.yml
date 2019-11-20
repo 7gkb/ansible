@@ -1,0 +1,12 @@
+---
+# vars file for enableopenvpn
+enableopenvpn_src:
+- /home/{{ ansible_user }}/openvpn/
+
+enableopenvpn_dest: /etc/openvpn/
+
+enableopenvpn_ovpn: /etc/openvpn/{{ ansible_hostname }}.ovpn
+
+enableopenvpn_conf: /etc/openvpn/client/{{ inventory_hostname }}.conf
+
+enableopenvpn_service: openvpn-client@{{ inventory_hostname }}

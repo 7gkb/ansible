@@ -1,0 +1,1262 @@
+*PPD-Adobe: "4.3"
+*% =========================================
+*% Disclaimer:  The above statement indicates
+*% that this PPD was written using the Adobe PPD
+*% File Format Specification 4.3, but does not 
+*% intend to imply approval and acceptance by
+*% Adobe Systems, Inc. 
+*% =========================================
+*% PPD for Xerox B210 Printer PS
+*% =========================================
+*FileVersion: "3.2"
+*FormatVersion: "4.3"
+*LanguageEncoding: ISOLatin1
+*LanguageVersion: English
+*PCFileName: "xpb210.ppd"
+*Product: "(Xerox B210 Printer)"
+*Manufacturer:  "Xerox"
+*PSVersion: "(3011    ) 0"
+*ModelName: "Xerox B210 Printer"
+*ShortNickName: "Xerox B210 Printer PS"
+*NickName: "Xerox B210 Printer PS"
+*LanguageLevel: "3"
+*Protocols: PJL TBCP
+*FreeVM: "60300000"
+*ColorDevice: False
+*DefaultColorSpace: Gray
+*TTRasterizer: Type42
+*?TTRasterizer: "
+  save
+       42 /FontType resourcestatus
+       { pop pop (Type42)} {pop pop (None)} ifelse = flush
+  restore
+"
+*End
+
+*% =========================================================
+*% Installable Options
+*% =========================================================
+*OpenGroup: InstallableOptions/Installed Options
+*OpenUI *OptTray2/Tray 2: PickOne
+*DefaultOptTray2: False
+*OptTray2 False/Not Installed: ""
+*OptTray2 True/Standard Capacity: ""
+*OptTray2 LCT/High Capacity: ""
+*?OptTray2:"
+      save
+        currentpagedevice /InputAttributes get dup
+        4 known
+         { 4 get null ne {(True)}{(False)} ifelse}
+         { pop (False) } ifelse = flush
+       restore"
+*End
+*CloseUI: *OptTray2
+
+*OpenUI *OptTray3/Tray 3: PickOne
+*DefaultOptTray3: False
+*OptTray3 False/Not Installed: ""
+*OptTray3 True/Standard Capacity: ""
+*OptTray3 LCT/High Capacity: ""
+*?OptTray3:"
+      save
+        currentpagedevice /InputAttributes get dup
+        5 known
+         { 5 get null ne {(True)}{(False)} ifelse}
+         { pop (False) } ifelse = flush
+       restore"
+*End
+*CloseUI: *OptTray3
+
+*OpenUI *OptTray4/Tray 4: PickOne
+*DefaultOptTray4: False
+*OptTray4 False/Not Installed: ""
+*OptTray4 True/Installed: ""
+*OptTray4 LCT/High Capacity: ""
+*?OptTray4:"
+      save
+        currentpagedevice /InputAttributes get dup
+        6 known
+         { 6 get null ne {(True)}{(False)} ifelse}
+         { pop (False) } ifelse = flush
+       restore"
+*End
+*CloseUI: *OptTray4
+
+*OpenUI *OptTray5/Tray 5: PickOne
+*DefaultOptTray5: False
+*OptTray5 False/Not Installed: ""
+*OptTray5 True/Installed: ""
+*OptTray5 LCT/High Capacity: ""
+*?OptTray5:"
+      save
+        currentpagedevice /InputAttributes get dup
+        7 known
+         { 7 get null ne {(True)}{(False)} ifelse}
+         { pop (False) } ifelse = flush
+       restore"
+*End
+*CloseUI: *OptTray5
+
+
+*OpenUI *DuplexUnit/Duplex Unit: Boolean
+*DefaultDuplexUnit: False
+*DuplexUnit False/Not Installed: ""
+*DuplexUnit True/Installed: ""
+*?DuplexUnit: "
+  save
+	currentpagedevice dup /SECDuplexUnit known
+	{/SECDuplexUnit get
+   	 {(True)}{(False)}ifelse 
+	}
+	{
+   	 pop (False) 
+	} ifelse = flush
+  restore
+"
+*End
+*CloseUI: *DuplexUnit
+
+*OpenUI *PrinterHardDisk/Optional Hard Disk Drive (HDD): Boolean
+*DefaultPrinterHardDisk: False
+*PrinterHardDisk False/Not Installed: ""
+*PrinterHardDisk True/Installed: ""
+*CloseUI: *PrinterHardDisk
+
+*OpenUI *Finisher/Optional Finisher: PickOne
+*DefaultFinisher: None
+*Finisher None/Not Installed: ""
+*Finisher MPFinisher/Finisher: ""
+*Finisher MPFinisher2/2-Bin Finisher: ""
+*Finisher StandardFinisher/Standard Finisher (1K): ""
+*Finisher BookletFinisher/Booklet Finisher (3K): ""
+*Finisher InnerFinisher/Inner Finisher: ""
+*CloseUI: *Finisher
+
+*OpenUI *OptOutputBin/Output Bin: PickOne
+*DefaultOptOutputBin: None
+*OptOutputBin None/None: ""
+*OptOutputBin Bin1/Bin1: ""
+*?OptOutputBin: "
+  save
+   currentpagedevice /OutputAttributes get
+   dup 4 known
+   {
+     dup 11 known {pop (Bin1)}
+          if
+   }
+   { pop (None)} ifelse = flush
+  restore
+"
+*End
+*CloseUI: *OptOutputBin
+
+*OpenUI *OptPunch/Optional Hole Punch: PickOne
+*DefaultOptPunch: None
+*OptPunch None/None: ""
+*OptPunch 2-3Hole/2/3 Hole: ""
+*OptPunch 2-4Hole/2/4 Hole: ""
+*OptPunch Scan-4Hole/Scan-4 Hole: ""
+*CloseUI: *OptPunch
+
+*OpenUI *OptMailbox/4-Bin Mailbox: Boolean
+*DefaultOptMailbox: False
+*OptMailbox False/Not Installed: ""                    
+*OptMailbox True/Installed: ""                         
+*CloseUI: *OptMailbox
+
+
+*OpenUI *InstalledMemory/Printer Memory: PickOne
+*DefaultInstalledMemory: 128MB
+*InstalledMemory 16MB/16 MB: ""
+*InstalledMemory 32MB/32 MB: ""
+*InstalledMemory 48MB/48 MB: ""
+*InstalledMemory 64MB/64 MB: ""
+*InstalledMemory 80MB/80 MB: ""
+*InstalledMemory 96MB/96 MB: ""
+*InstalledMemory 128MB/128 MB: ""
+*InstalledMemory 144MB/144 MB: ""
+*InstalledMemory 160MB/160 MB: ""
+*InstalledMemory 192MB/192 MB: ""
+*InstalledMemory 256MB/256 MB: ""
+*InstalledMemory 288MB/288 MB: ""
+*InstalledMemory 320MB/320 MB: ""
+*InstalledMemory 384MB/384 MB: ""
+*InstalledMemory 512MB/512 MB: ""
+*InstalledMemory 576MB/576 MB: ""
+*InstalledMemory 768MB/768 MB: ""
+*InstalledMemory 832MB/832 MB: ""
+*InstalledMemory 1024MB/1024 MB: ""
+*InstalledMemory 1088MB/1088 MB: ""
+*InstalledMemory 2048MB/2048 MB: ""
+
+*CloseUI: *InstalledMemory
+
+
+*OpenUI *OptRAMDisk/RAM Disk: Boolean
+*DefaultOptRAMDisk: False
+*OptRAMDisk False/Not Installed: ""
+*OptRAMDisk True/Installed: ""
+*CloseUI: *OptRAMDisk
+
+*OpenUI *OptInnerOutputBin/Optional Inner Tray: Boolean
+*DefaultOptInnerOutputBin: False
+*OptInnerOutputBin False/Not Installed: ""
+*OptInnerOutputBin True/Installed: ""
+*CloseUI: *OptInnerOutputBin
+
+*OpenUI *OptInternalUSBMemory/Internal Flash Driver: Boolean
+*DefaultOptInternalUSBMemory: False
+*OptInternalUSBMemory False/Not Installed: ""
+*OptInternalUSBMemory True/Installed: ""
+*CloseUI: *OptInternalUSBMemory
+
+*CloseGroup: InstallableOptions
+
+*VMOption 16MB/16 MB: "1700000"
+*VMOption 32MB/32 MB: "3400000"
+*VMOption 48MB/48 MB: "5000000"
+*VMOption 64MB/64 MB: "6700000"
+*VMOption 80MB/80 MB: "8400000"
+*VMOption 96MB/96 MB: "9800000"
+*VMOption 128MB/128 MB: "13400000"
+*VMOption 144MB/144 MB: "15100000"
+*VMOption 160MB/160 MB: "16500000"
+*VMOption 192MB/192 MB: "19700000"
+*VMOption 256MB/256 MB: "26800000"
+*VMOption 288MB/288 MB: "29500000"
+*VMOption 320MB/320 MB: "32800000"
+*VMOption 384MB/384 MB: "40200000"
+*VMOption 512MB/512 MB: "53600000"
+*VMOption 576MB/576 MB: "60300000"
+*VMOption 768MB/768 MB: "80400000"
+*VMOption 832MB/832 MB: "86400000"
+*VMOption 1024MB/1024 MB: "107200000"
+*VMOption 1088MB/1088 MB: "113900000"
+*VMOption 2048MB/2048 MB: "214400000"
+
+
+*JCLBegin:""
+*JCLToPSInterpreter:"@PJL ENTER LANGUAGE=POSTSCRIPT<0D0A>"
+*JCLEnd:""
+
+*%==========================================================
+*% Collate
+*%==========================================================
+*OpenUI *Collate/Collate:  Boolean
+*OrderDependency: 70 AnySetup *Collate
+*DefaultCollate: True
+*Collate False/Off: "<</Collate false>> setpagedevice"
+*Collate True/On: "<</Collate true>> setpagedevice"
+*?Collate: "
+   save
+      currentpagedevice /Collate get
+      {(True)}{(False)}ifelse = flush
+   restore
+"
+*End
+*CloseUI: *Collate
+
+*% =========================================================
+*%  Duplex
+*% =========================================================
+*OpenUI *Duplex/Double-sided Printing:  PickOne
+*OrderDependency: 60 AnySetup *Duplex
+*DefaultDuplex: None
+*Duplex None/None: ""
+*Duplex DuplexNoTumble/Long Edge: "
+    <</Duplex true /Tumble false>> setpagedevice"
+*End
+*Duplex DuplexTumble/Short Edge: "
+    <</Duplex true /Tumble true>> setpagedevice"
+*End
+*?Duplex: "
+   save
+      currentpagedevice /Duplex get
+        {currentpagedevice /Tumble get
+            {(DuplexTumble)}{(DuplexNoTumble)}ifelse
+         }{(None)} ifelse = flush
+   restore
+"
+*End  
+*CloseUI: *Duplex
+
+*% =========================================================
+*%  StapleLocation
+*% =========================================================
+*JCLOpenUI *StapleLocation/Staple: PickOne
+*OrderDependency: 10 JCLSetup *StapleLocation
+*DefaultStapleLocation: None
+*StapleLocation None/None: ""
+*StapleLocation 1Staple/1 Staple: ""
+*StapleLocation 2Staple/2 Staple:  ""
+*JCLCloseUI: *StapleLocation
+
+*% =========================================================
+*%  StaplePosition
+*% =========================================================
+*JCLOpenUI *JCLStaplePosition/Staple Position: PickOne
+*OrderDependency: 10 JCLSetup *JCLStaplePosition
+*DefaultJCLStaplePosition: None
+*JCLStaplePosition None/None:   ""
+*JCLStaplePosition Left/Left:   "@PJL SET STAPLEPOSITION=LEFT<0D0A>"
+*JCLStaplePosition Right/Right: "@PJL SET STAPLEPOSITION=RIGHT<0D0A>"
+*JCLStaplePosition Top/Top:     "@PJL SET STAPLEPOSITION=TOP<0D0A>"
+*JCLCloseUI: *JCLStaplePosition
+
+*% =========================================================
+*%  Punching
+*% =========================================================
+*JCLOpenUI *JCLPunch/Punch: PickOne
+*OrderDependency: 10 JCLSetup *JCLPunch
+*DefaultJCLPunch: None
+*JCLPunch None/None: ""
+*JCLPunch 2Hole/2 Hole: "@PJL SET PUNCHNUM=2<0D0A>"
+*JCLPunch 3Hole/3 Hole: "@PJL SET PUNCHNUM=3<0D0A>"
+*JCLPunch 4Hole/4 Hole: "@PJL SET PUNCHNUM=4<0D0A>"
+*JCLPunch Scan4Hole/4 Hole: "@PJL SET PUNCHNUM=4<0D0A>"
+*JCLCloseUI: *JCLPunch
+
+*% =======================================================================================
+*%  PunchPosition
+*% =======================================================================================
+*JCLOpenUI *JCLPunchPosition/Hole Punching Position: PickOne
+*OrderDependency: 10 JCLSetup *JCLPunchPosition
+*DefaultJCLPunchPosition: None
+*JCLPunchPosition None/None:   ""
+*JCLPunchPosition Left/Left:   "@PJL SET PUNCHPOSITION=LEFT<0D0A>"
+*JCLPunchPosition Right/Right: "@PJL SET PUNCHPOSITION=RIGHT<0D0A>"
+*JCLPunchPosition Top/Top:     "@PJL SET PUNCHPOSITION=TOP<0D0A>"
+*JCLCloseUI: *JCLPunchPosition
+
+*% =======================================================================================
+*%  JCLSortOptions
+*% =======================================================================================
+*JCLOpenUI *JCLSortOptions/Sort Options: PickOne
+*OrderDependency: 10 JCLSetup *JCLSortOptions
+*DefaultJCLSortOptions: None
+*JCLSortOptions None/None:                         ""
+*JCLSortOptions Offset/Offset:                     "@PJL SET SORT=OFFSET<0D0A>"
+*JCLSortOptions Rotate/Rotate:                     "@PJL SET SORT=ROTATE<0D0A>"
+*JCLCloseUI: *JCLSortOptions
+
+
+*% =========================================================
+*%  Request Offset
+*% =========================================================
+*OpenUI *SECOffSet/Request Offset: Boolean
+*OrderDependency: 90 AnySetup *SECOffSet
+*DefaultSECOffSet: False
+*SECOffSet False/No Offset: "<</Jog 0>> setpagedevice"
+*SECOffSet True/Offset Each Set: "<</Jog 3>> setpagedevice"
+*CloseUI: *SECOffSet
+
+*% =========================================================
+*%  Information Page
+*% =========================================================
+*JCLOpenUI *JCLBanner/Information Page: Boolean
+*OrderDependency: 10 JCLSetup *JCLBanner
+*DefaultJCLBanner: False
+*JCLBanner False/Off:"@PJL SET BANNERSHEET=OFF<0D0A>"
+*JCLBanner True/On:"@PJL SET BANNERSHEET=ON<0D0A>" 
+*JCLCloseUI: *JCLBanner
+
+*% =========================================================
+*%  ReverseDuplex
+*% =========================================================
+*OpenUI *SECReverseDuplex/Reverse Duplex Printing:  Boolean
+*OrderDependency: 50 AnySetup *SECReverseDuplex
+*DefaultSECReverseDuplex: False
+*SECReverseDuplex False/Off: "userdict /SECReverseDuplex false put"
+*SECReverseDuplex True/On: "userdict /SECReverseDuplex true put"
+*CloseUI: *SECReverseDuplex
+
+
+
+*%========================================================
+*% JCLOutputMode
+*%========================================================
+*JCLOpenUI *JCLOutputMode/Output Mode: PickOne
+*OrderDependency: 10 JCLSetup *JCLOutputMode
+*DefaultJCLOutputMode: None
+*JCLOutputMode None/Printer Setting: 		"@PJL SET MULTIBINMODE=PRINTERDEFAULT<0D0A>"
+*JCLOutputMode Mailbox/Mailbox Mode: 		"@PJL SET MULTIBINMODE=MAILBOX<0D0A>"
+*JCLOutputMode Separator/Job Separator Mode:	"@PJL SET MULTIBINMODE=JOBSEPARATOR<0D0A>"
+*JCLOutputMode Collator/Sorter/Collator Mode: 	"@PJL SET MULTIBINMODE=SORTER_COLLATOR<0D0A>"
+*JCLOutputMode Stacking/Stacking Mode: 		"@PJL SET MULTIBINMODE=STACKING<0D0A>"
+*JCLCloseUI: *JCLOutputMode
+
+*%========================================================
+*% JCLOutputBin
+*%========================================================
+*JCLOpenUI *JCLOutputBin/Output Bin: PickOne
+*OrderDependency: 10 JCLSetup *JCLOutputBin
+*DefaultJCLOutputBin: None
+*JCLOutputBin None/Printer Setting: 	""
+*JCLOutputBin Upper/Standard Bin: 	""
+*JCLOutputBin Bin1/Bin 1: 	""
+*JCLOutputBin Bin2/Bin 2: 	""
+*JCLOutputBin Bin3/Bin 3:	""
+*JCLOutputBin Bin4/Bin 4:	""
+*JCLOutputBin Bin5/Bin 5:	""
+*JCLOutputBin Bin6/Bin 6:	""
+*JCLCloseUI: *JCLOutputBin
+
+*% =========================================================
+*%  Boooklet Finishing
+*% =========================================================
+*JCLOpenUI *JCLBookletFinishing/Booklet Finishing: PickOne
+*OrderDependency: 10 JCLSetup *JCLBookletFinishing
+*DefaultJCLBookletFinishing: None
+*JCLBookletFinishing None/None:                      ""
+*JCLBookletFinishing Folding/Folding:                "@PJL SET BOOKLETMODE=FOLDING<0D0A>" 
+*JCLBookletFinishing FoldingStaple/Staple Folding: "@PJL SET BOOKLETMODE=FOLDING&STAPLE<0D0A>" 
+*JCLCloseUI: *JCLBookletFinishing
+
+*% =========================================================
+*%  Media Type / 315
+*% =========================================================
+*OpenUI *MediaType/Paper Type: PickOne
+*OrderDependency: 50 AnySetup *MediaType
+*DefaultMediaType: None
+*MediaType None/PrinterDefault:            				""
+*MediaType Plain/Normal:                   				"<</MediaType (Plain)>> setpagedevice"
+*MediaType Thick/Thick:                    				"<</MediaType (THICK)>> setpagedevice"
+*MediaType ExtraThick/Extra Thick:         				"<</MediaType (EXTRATHICK)>> setpagedevice"
+*MediaType Thin/Thin:                      				"<</MediaType (THIN)>> setpagedevice"
+*MediaType Bond/Bond:                      				"<</MediaType (Bond)>> setpagedevice"
+*MediaType Color/Color:                    				"<</MediaType (Color)>> setpagedevice"
+*MediaType Card/CARD:                      				"<</MediaType (Card Stock)>> setpagedevice"
+*MediaType Labels/Labels:                  				"<</MediaType (Labels)>> setpagedevice"
+*MediaType Transparency/OHP:               				"<</MediaType (Transparency)>> setpagedevice"
+*MediaType Envelope/ENV:                   				"<</MediaType (Envelope)>> setpagedevice"
+*MediaType Preprinted/Preprinted:          				"<</MediaType (Preprinted)>> setpagedevice"
+*MediaType Recycled/Recycle:               				"<</MediaType (Recycled)>> setpagedevice"
+*MediaType Cotton/Cotton:                  				"<</MediaType (COTTEN)>> setpagedevice"
+*MediaType Archive/Archive:                				"<</MediaType (ARCHIVE)>> setpagedevice"
+*MediaType Punched/Punched:                				"<</MediaType (Prepunched)>> setpagedevice"
+*MediaType Letterhead/LetterHead:          				"<</MediaType (Letterhead)>> setpagedevice"
+*MediaType Special/Special: 		   	   				"<</MediaType (Special)>> setpagedevice"
+*MediaType HeavyWeight/Heavy Weight:        			"<</MediaType (HeavyWeight)>> setpagedevice"
+*MediaType Check/Personal Check:           				"<</MediaType (CHECK)>> setpagedevice"
+*MediaType 3MDecal/3M Decal:	 	   					"<</MediaType (3MDECAL)>> setpagedevice"
+*MediaType ExtraHeavyWeight1/Extra Heavy Weight 1:     	"<</MediaType (ExtraHeavyWeight1)>> setpagedevice"
+*MediaType ExtraHeavyWeight2/Extra Heavy Weight 2:     	"<</MediaType (ExtraHeavyWeight2)>> setpagedevice"
+*MediaType ThinCardStock/Thin Cardstock:               	"<</MediaType (ThinCardStock)>> setpagedevice"
+*MediaType ThickCardStock/Thick Cardstock:             	"<</MediaType (ThickCardStock)>> setpagedevice"
+*MediaType ThinGlossy/Thin Glossy:                     	"<</MediaType (ThinGlossy)>> setpagedevice"
+*MediaType ThickGlossy/Thick Glossy:                   	"<</MediaType (ThickGlossy)>> setpagedevice"
+*MediaType LegPlain/Normal:                 		  	"<</MediaType (NORMAL)>> setpagedevice"
+*MediaType LegBond/Bond:                      			"<</MediaType (BOND)>> setpagedevice"
+*MediaType LegColor/Color:                    			"<</MediaType (COLOR)>> setpagedevice"
+*MediaType LegCard/CARD:                      			"<</MediaType (CARD)>> setpagedevice"
+*MediaType LegLabels/Labels:                  			"<</MediaType (LABEL)>> setpagedevice"
+*MediaType LegTransparency/OHP:               			"<</MediaType (OHP)>> setpagedevice"
+*MediaType LegEnvelope/ENV:                   			"<</MediaType (ENVELOPE)>> setpagedevice"
+*MediaType LegPreprinted/Preprinted:          			"<</MediaType (USED)>> setpagedevice"
+*MediaType LegRecycled/Recycle:               			"<</MediaType (RECYCLED)>> setpagedevice"
+*MediaType LegPunched/Punched:                			"<</MediaType (PUNCHED)>> setpagedevice"
+*MediaType LegLetterhead/LetterHead:          			"<</MediaType (LETTERHEAD)>> setpagedevice"
+*MediaType LegNone/PrinterDefault:                  	"<</MediaType (OFF)>> setpagedevice"
+*MediaType Thicker/Thicker:           					"<</MediaType (THICKER)>> setpagedevice"
+*MediaType Photo111-130/Glossy Photo 111~130 g/m2:		"<</MediaType (Photo111-130)>> setpagedevice"
+*MediaType Photo131-175/Glossy Photo 131~175 g/m2:		"<</MediaType (Photo131-175)>> setpagedevice"
+*MediaType Photo176-220/Glossy Photo 176~220 g/m2:  	"<</MediaType (Photo176-220)>> setpagedevice"
+*MediaType MattePhoto111-130/Matte Photo 111-130 g/m2: 	"<</MediaType (MATTEPHOTO111-130)>> setpagedevice"
+*MediaType MattePhoto131-175/Matte Photo 131-175 g/m2: 	"<</MediaType (MATTEPHOTO131-175)>> setpagedevice"
+*MediaType MattePhoto176-220/Matte Photo 176-220 g/m2: 	"<</MediaType (MATTEPHOTO176-220)>> setpagedevice"
+*MediaType None_Command/PrinterDefault:            		"<</MediaType (system-default)>> setpagedevice"
+*MediaType ExtraHeavyWeight3/Extra Heavy Weight 3:     	"<</MediaType (ExtraHeavyWeight3)>> setpagedevice"
+*MediaType ExtraHeavyWeight4/Extra Heavy Weight 4:     	"<</MediaType (ExtraHeavyWeight4)>> setpagedevice"
+*MediaType HeavyCardStock/Heavy Cardstock:              	"<</MediaType (HeavyCardStock)>> setpagedevice"
+*MediaType ExtraHeavyCardStock1/Extra Heavy Cardstock1:               	"<</MediaType (ExtraHeavyCardStock1)>> setpagedevice"
+*MediaType ExtraHeavyCardStock2/Extra Heavy Cardstock2:               	"<</MediaType (ExtraHeavyCardStock2)>> setpagedevice"
+*MediaType HeavyGlossy/Heavy Glossy:                     	"<</MediaType (HeavyGlossy)>> setpagedevice"
+*MediaType ThickEnvelope/Thick Envelope:                     	"<</MediaType (thick_env)>> setpagedevice"
+*MediaType ExtraHeavyWeight/Extra Heavy Weight:                    	"<</MediaType (ExtraHeavyWeight)>> setpagedevice"
+*MediaType HeavyCardStock1/Heavy Cardstock1:               	"<</MediaType (HeavyCardStock1)>> setpagedevice"
+*MediaType HeavyCardStock2/Heavy Cardstock2:               	"<</MediaType (HeavyCardStock2)>> setpagedevice"
+*MediaType Thick1/Thick 1:                              "<</MediaType (Thick 1)>> setpagedevice"
+*MediaType Thick2/Thick 2:                              "<</MediaType (Thick 2)>> setpagedevice"
+*MediaType Thick3/Thick 3:                              "<</MediaType (Thick 3)>> setpagedevice"
+*CloseUI: *MediaType
+
+*% =======================================================================================
+*%  Toner Save Mode
+*% =======================================================================================
+*JCLOpenUI *JCLEconomode/Toner Save Mode: PickOne
+*OrderDependency: 10 JCLSetup *JCLEconomode
+*DefaultJCLEconomode: NONE
+*JCLEconomode NONE/Printer Setting: ""
+*JCLEconomode Off/Off: ""
+*JCLEconomode On/On: ""
+*JCLCloseUI: *JCLEconomode
+
+*% =========================================================
+*%  Quality Information
+*% =========================================================
+*OpenUI *Quality/Quality: PickOne
+*OrderDependency: 15 AnySetup *Quality
+*DefaultQuality: Normal
+*Quality Best/Best: 			""
+*Quality Normal/Normal: 		""
+*Quality Draft/Draft: 			""
+*Quality HighResolution/High Resolution: 			""
+*CloseUI: *Quality
+
+
+*% =========================================================
+*%  Resolution & Halftone Information
+*% =========================================================
+*OpenUI *Resolution/Resolution: PickOne
+*OrderDependency: 10 AnySetup *Resolution
+*DefaultResolution: 600dpi
+*Resolution 1200dpi/1200 dpi (Best): ""
+*Resolution 600dpi/600 dpi (Normal): ""
+*?Resolution: "
+	save
+        currentpagedevice /HWResolution get
+        0 get
+ 	(          ) cvs print (dpi) = flush
+	restore"
+*End
+*CloseUI: *Resolution
+
+*DefaultResolution: 600dpi
+
+*DefaultHalftoneType: 9
+*ScreenFreq:  "106.0"
+*ScreenAngle: "45.0"
+
+*% =========================================================
+*%  Passthrough
+*% =========================================================
+*OpenUI *SECPassthrough/PostScript Passthrough:  PickOne
+*OrderDependency: 10 AnySetup *SECPassthrough
+*DefaultSECPassthrough: Auto
+*SECPassthrough False/Disabled: ""
+*SECPassthrough True/Enabled (Recommended): ""
+*SECPassthrough Auto/Auto: ""
+*CloseUI: *SECPassthrough
+
+*% =======================================================================================
+*% OutputBin
+*% =======================================================================================
+*%OpenUI *OutputBin/Output Bin: PickOne
+*%OrderDependency: 90 AnySetup *OutputBin
+*%DefaultOutputBin: None
+*%OutputBin None/Auto: 	    ""
+*%OutputBin Standard/Standard: 	    "<</OutputType (TOP OUTPUT BIN)>> setpagedevice"
+*%OutputBin Bin1/Bin1: 			    "<</OutputType (OPTIONAL OUTBIN 1)>> setpagedevice"
+*%CloseUI: *OutputBin
+
+*% =======================================================================================
+*% Regional Color
+*% =======================================================================================
+*JCLOpenUI *JCLRegionColor/Lenovo DigiColor: PickOne
+*DefaultJCLRegionColor: Basic
+*OrderDependency: 10 JCLSetup *JCLRegionColor
+*%JCLRegionColor None/None:""
+*%JCLRegionColor Basic/Basic Color:"@PJL SET RGBCOLOR=STANDARD<0D0A>"
+*JCLRegionColor Basic/Basic Color:""
+*JCLRegionColor Sapphire/Sapphire:"@PJL SET RGBCOLOR=AMERICAN<0D0A>"
+*JCLRegionColor Emerald/Emerald: "@PJL SET RGBCOLOR=EUROPEAN<0D0A>"
+*JCLRegionColor Aquamarine/Aquamarine: "@PJL SET RGBCOLOR=ORIENTAL<0D0A>"
+*JCLCloseUI: *JCLRegionColor
+
+*% =======================================================================================
+*% JCLRGB
+*% =======================================================================================
+*JCLOpenUI *JCLRGB/RGB Color: PickOne
+*DefaultJCLRGB: Standard
+*OrderDependency: 10 JCLSetup *JCLRGB
+*%JCLRGB Standard/Standard:"@PJL SET RGBCOLOR=STANDARD<0D0A>"
+*JCLRGB Standard/Standard:""
+*JCLRGB Vivid/Vivid: "@PJL SET RGBCOLOR=VIVID<0D0A>"
+*JCLRGB Device/Device: "@PJL SET RGBCOLOR=DEVICE<0D0A>"
+*JCLRGB CoImaging/Corporate Imaging: "@PJL SET RGBCOLOR=CUSTOMCMS<0D0A>"
+*JCLCloseUI: *JCLRGB
+
+*%========================================================
+*% JCLRGBSimulator
+*%========================================================
+*JCLOpenUI *JCLRGBSimulator/Simulator: PickOne
+*DefaultJCLRGBSimulator: Simulation1
+*OrderDependency: 10 JCLSetup *JCLRGBSimulator
+*JCLRGBSimulator Simulation1/Printer Default:               ""
+*JCLRGBSimulator Simulation2/Default Simulation:            "@PJL SET RGBSIMULATOR=DEFAULT<0D0A>"
+*JCLRGBSimulator Simulation3/Simulation A:                  "@PJL SET RGBSIMULATOR=SIMUL_A<0D0A>"
+*JCLRGBSimulator Simulation4/Simulation B:                  "@PJL SET RGBSIMULATOR=SIMUL_B<0D0A>"
+*JCLRGBSimulator Simulation5/Simulation C:                  "@PJL SET RGBSIMULATOR=SIMUL_C<0D0A>"
+*JCLRGBSimulator Simulation6/Simulation D:                  "@PJL SET RGBSIMULATOR=SIMUL_D<0D0A>"
+*JCLCloseUI: *JCLRGBSimulator
+
+*% =======================================================================================
+*%  Darken Text
+*% =======================================================================================
+*JCLOpenUI *JCLDarkenText/Darken Text: PickOne
+*OrderDependency: 10 JCLSetup *JCLDarkenText
+*DefaultJCLDarkenText: False
+*JCLDarkenText False/Off:                   ""
+*JCLDarkenText True/Normal:                 ""
+*JCLDarkenText Maximum/Maximum:             ""
+*JCLCloseUI: *JCLDarkenText
+
+*% =======================================================================================
+*%  Fine Edge
+*% =======================================================================================
+*JCLOpenUI *JCLFineEdge/Fine Edge: PickOne
+*OrderDependency: 10 JCLSetup *JCLFineEdge
+*DefaultJCLFineEdge: Off
+*JCLFineEdge Off/Off:						""
+*JCLFineEdge Minimum/Minimum:				""
+*JCLFineEdge Normal/Normal:					""
+*JCLFineEdge Maximum/Maximum:				""
+*JCLCloseUI: *JCLFineEdge
+
+*% =======================================================================================
+*%  JCLCopySetNumbering
+*% =======================================================================================
+*JCLOpenUI *JCLCopySetNumbering/Copy Set Numbering: Boolean
+*OrderDependency: 10 JCLSetup *JCLCopySetNumbering
+*DefaultJCLCopySetNumbering: False
+*JCLCopySetNumbering False/Off:                   "@PJL SET COPYSETNUMBER=OFF<0D0A>"
+*JCLCopySetNumbering True/On:                     "@PJL SET COPYSETNUMBER=ON<0D0A>"
+*JCLCloseUI: *JCLCopySetNumbering
+
+*% =======================================================================================
+*%  JCLCopySetNumberingPosition
+*% =======================================================================================
+*JCLOpenUI *JCLCopySetNumberingPosition/Copy Set Numbering Position: PickOne
+*OrderDependency: 10 JCLSetup *JCLCopySetNumberingPosition
+*DefaultJCLCopySetNumberingPosition: None
+*JCLCopySetNumberingPosition None/None:                   ""
+*JCLCopySetNumberingPosition Top/Top:                     "@PJL SET COPYSETNUMPOSITION=TOP<0D0A>"
+*JCLCopySetNumberingPosition TopLeft/TopLeft:             "@PJL SET COPYSETNUMPOSITION=TOPLEFT<0D0A>"
+*JCLCopySetNumberingPosition TopRight/TopRight:           "@PJL SET COPYSETNUMPOSITION=TOPRIGHT<0D0A>"
+*JCLCopySetNumberingPosition Bottom/Bottom:               "@PJL SET COPYSETNUMPOSITION=BOTTOM<0D0A>"
+*JCLCopySetNumberingPosition BottomLeft/BottomLeft:       "@PJL SET COPYSETNUMPOSITION=BOTTOMLEFT<0D0A>"
+*JCLCopySetNumberingPosition BottomRight/BottomRight:     "@PJL SET COPYSETNUMPOSITION=BOTTOMRIGHT<0D0A>"
+*JCLCloseUI: *JCLCopySetNumberingPosition
+
+*% =======================================================================================
+*%  JCLSkipBlankPages
+*% =======================================================================================
+*JCLOpenUI *JCLSkipBlankPages/Skip Blank Pages: Boolean
+*OrderDependency: 10 JCLSetup *JCLSkipBlankPages
+*DefaultJCLSkipBlankPages: False
+*JCLSkipBlankPages False/Off:                   ""
+*JCLSkipBlankPages True/On:                     ""
+*JCLCloseUI: *JCLSkipBlankPages
+
+*% =======================================================================================
+*%  Front Cover [OPTION]
+*% =======================================================================================
+*JCLOpenUI *JCLFrontCoverOption/Front Cover Option: PickOne
+*OrderDependency: 10 JCLSetup *JCLFrontCoverOption
+*DefaultJCLFrontCoverOption: None
+*JCLFrontCoverOption None/No Covers:""
+*JCLFrontCoverOption BlankPreprinted/Blank or Preprinted:"@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>FRONT<220D0A>@PJL SET FRONT_COVER_OPTION=<22>BLANK<220D0A>"
+*JCLFrontCoverOption 1SidedPrinted/1-Sided Printed: 	 "@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>FRONT<220D0A>@PJL SET FRONT_COVER_OPTION=<22>1SIDEPRINTED<220D0A>"
+*JCLFrontCoverOption 2SidedPrinted/2-Sided Printed: 	 "@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>FRONT<220D0A>@PJL SET FRONT_COVER_OPTION=<22>2SIDEPRINTED<220D0A>"
+*JCLCloseUI: *JCLFrontCoverOption
+
+*% =======================================================================================
+*%  Front Cover [Source]
+*% =======================================================================================
+*JCLOpenUI *JCLFrontCoverSource/Front Cover Source: PickOne
+*OrderDependency: 10 JCLSetup *JCLFrontCoverSource
+*DefaultJCLFrontCoverSource: None
+*JCLFrontCoverSource None/None:				   	   ""
+*JCLFrontCoverSource Auto/Auto:		   			   "@PJL SET FRONT_COVER_TRAY=<22>AUTO<220D0A>"
+*JCLFrontCoverSource ManualFeed/Manual: 		   "@PJL SET FRONT_COVER_TRAY=<22>MANUAL<220D0A>"
+*JCLFrontCoverSource Upper/MPTray: 				   "@PJL SET FRONT_COVER_TRAY=<22>MPTRAY<220D0A>"
+*JCLFrontCoverSource Middle/Tray 1: 		   	   "@PJL SET FRONT_COVER_TRAY=<22>UPPER<220D0A>"
+*JCLFrontCoverSource Lower/Tray 2: 			   	   "@PJL SET FRONT_COVER_TRAY=<22>LOWER<220D0A>"
+*JCLFrontCoverSource Tray3/Tray 3: 			   	   "@PJL SET FRONT_COVER_TRAY=<22>OPTIONTRAY3<220D0A>"
+*JCLFrontCoverSource Tray4/Tray 4: 			   	   "@PJL SET FRONT_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLFrontCoverSource LowerH/Lower (HCT):           "@PJL SET FRONT_COVER_TRAY=<22>LOWER<220D0A>"
+*JCLFrontCoverSource Tray3H/Tray3 (HCT):           "@PJL SET FRONT_COVER_TRAY=<22>OPTIONTRAY3<220D0A>"
+*JCLFrontCoverSource Tray4H/Tray4 (HCT):           "@PJL SET FRONT_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLFrontCoverSource Tray4L/Tray4 (LCT):  "@PJL SET FRONT_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLFrontCoverSource Tray5/Tray 5: 			   	   "@PJL SET FRONT_COVER_TRAY=<22>OPTIONTRAY5<220D0A>"
+*JCLFrontCoverSource MPManual/MPManual: 		   "@PJL SET FRONT_COVER_TRAY=<22>MPTRAY<220D0A>"
+*JCLCloseUI: *JCLFrontCoverSource
+
+*% =======================================================================================
+*%  Front Cover [Type]
+*% =======================================================================================
+*JCLOpenUI *JCLFrontCoverType/Front Cover Type: PickOne
+*OrderDependency: 10 JCLSetup *JCLFrontCoverType
+*DefaultJCLFrontCoverType: NoCover
+*JCLFrontCoverType NoCover/None: 									""
+*JCLFrontCoverType None/PrinterDefault: 							"@PJL SET FRONT_COVER_TYPE=<22>OFF<220D0A>"
+*JCLFrontCoverType Plain/Normal: 									"@PJL SET FRONT_COVER_TYPE=<22>NORMAL<220D0A>"
+*JCLFrontCoverType Thick/Thick: 									"@PJL SET FRONT_COVER_TYPE=<22>THICK<220D0A>"  
+*JCLFrontCoverType ExtraThick/Extra Thick: 							"@PJL SET FRONT_COVER_TYPE=<22>EXTRATHICK<220D0A>"  
+*JCLFrontCoverType Thin/Thin: 			   							"@PJL SET FRONT_COVER_TYPE=<22>THIN<220D0A>"                                                 
+*JCLFrontCoverType Bond/Bond: 			   							"@PJL SET FRONT_COVER_TYPE=<22>BOND<220D0A>"                                                
+*JCLFrontCoverType Color/Color: 			   						"@PJL SET FRONT_COVER_TYPE=<22>COLOR<220D0A>"                                             
+*JCLFrontCoverType Card/CARD: 				   						"@PJL SET FRONT_COVER_TYPE=<22>CARD<220D0A>"                                           
+*JCLFrontCoverType Labels/Labels: 				   					"@PJL SET FRONT_COVER_TYPE=<22>LABEL<220D0A>"                                             
+*JCLFrontCoverType Transparency/OHP: 	    						"@PJL SET FRONT_COVER_TYPE=<22>OHP<220D0A>"
+*JCLFrontCoverType Envelope/ENV: 			   						"@PJL SET FRONT_COVER_TYPE=<22>ENV<220D0A>"
+*JCLFrontCoverType Preprinted/Preprinted: 		   					"@PJL SET FRONT_COVER_TYPE=<22>USED<220D0A>"                                 
+*JCLFrontCoverType Recycled/Recycle: 	   							"@PJL SET FRONT_COVER_TYPE=<22>RECYCLED<220D0A>"
+*JCLFrontCoverType Cotton/Cotton: 				   					"@PJL SET FRONT_COVER_TYPE=<22>COTTON<220D0A>"                                         
+*JCLFrontCoverType Archive/Archive:    	   							"@PJL SET FRONT_COVER_TYPE=<22>ARCHIVE<220D0A>"                         
+*JCLFrontCoverType Punched/Punched: 			   					"@PJL SET FRONT_COVER_TYPE=<22>PUNCHED<220D0A>"                        
+*JCLFrontCoverType Letterhead/LetterHead: 		   					"@PJL SET FRONT_COVER_TYPE=<22>LETTERHEAD<220D0A>"                         
+*JCLFrontCoverType Special/Special: 		   						"@PJL SET FRONT_COVER_TYPE=<22>SPECIAL<220D0A>"
+*JCLFrontCoverType HeavyWeight/Heavy Weight: 		   				"@PJL SET FRONT_COVER_TYPE=<22>HEAVYWEIGHT<220D0A>"
+*JCLFrontCoverType Check/Personal Check: 		   					"@PJL SET FRONT_COVER_TYPE=<22>CHECK<220D0A>"
+*JCLFrontCoverType 3MDecal/3M Decal: 		   						"@PJL SET FRONT_COVER_TYPE=<22>3MDECAL<220D0A>"
+*JCLFrontCoverType ExtraHeavyWeight1/Extra Heavy Weight 1: 		   	"@PJL SET FRONT_COVER_TYPE=<22>EXTRAHEAVYWEIGHT1<220D0A>"
+*JCLFrontCoverType ExtraHeavyWeight2/Extra Heavy Weight 2: 		   	"@PJL SET FRONT_COVER_TYPE=<22>EXTRAHEAVYWEIGHT2<220D0A>"
+*JCLFrontCoverType ThinCardStock/Thin Cardstock:    		   		"@PJL SET FRONT_COVER_TYPE=<22>THINCARDSTOCK<220D0A>"
+*JCLFrontCoverType ThickCardStock/Thick Cardstock:  		   		"@PJL SET FRONT_COVER_TYPE=<22>THICKCARDSTOCK<220D0A>"
+*JCLFrontCoverType ThinGlossy/Thin Glossy:          		   		"@PJL SET FRONT_COVER_TYPE=<22>THINGLOSSY<220D0A>"
+*JCLFrontCoverType ThickGlossy/Thick Glossy:        		   		"@PJL SET FRONT_COVER_TYPE=<22>THICKGLOSSY<220D0A>"
+*JCLFrontCoverType Thicker/Thicker:        		  			        "@PJL SET FRONT_COVER_TYPE=<22>THICKER<220D0A>"
+*JCLFrontCoverType Photo111-130/Glossy Photo 111~130 g/m2:			"@PJL SET FRONT_COVER_TYPE=<22>PHOTO111-130<220D0A>"
+*JCLFrontCoverType Photo131-175/Glossy Photo 131~175 g/m2:			"@PJL SET FRONT_COVER_TYPE=<22>PHOTO131-175<220D0A>"
+*JCLFrontCoverType Photo176-220/Glossy Photo 176~220 g/m2:  		"@PJL SET FRONT_COVER_TYPE=<22>PHOTO176-220<220D0A>"
+*JCLFrontCoverType MattePhoto111-130/Matte Photo 111-130 g/m2: 		"@PJL SET FRONT_COVER_TYPE=<22>MATTEPHOTO111-130<220D0A>"
+*JCLFrontCoverType MattePhoto131-175/Matte Photo 131-175 g/m2: 		"@PJL SET FRONT_COVER_TYPE=<22>MATTEPHOTO131-175<220D0A>"
+*JCLFrontCoverType MattePhoto176-220/Matte Photo 176-220 g/m2: 		"@PJL SET FRONT_COVER_TYPE=<22>MATTEPHOTO131-175<220D0A>"
+*JCLFrontCoverType None_Command/PrinterDefault:                     "@PJL SET FRONT_COVER_TYPE=<22>OFF<220D0A>"
+*JCLFrontCoverType ExtraHeavyWeight3/Extra Heavy Weight 3:     	"@PJL SET FRONT_COVER_TYPE=<22>EXTRAHEAVYWEIGHT3<220D0A>"
+*JCLFrontCoverType ExtraHeavyWeight4/Extra Heavy Weight 4:     	"@PJL SET FRONT_COVER_TYPE=<22>EXTRAHEAVYWEIGHT4<220D0A>"
+*JCLFrontCoverType HeavyCardStock/Heavy Cardstock:               	"@PJL SET FRONT_COVER_TYPE=<22>HEAVYCARDSTOCK<220D0A>"
+*JCLFrontCoverType ExtraHeavyCardStock1/Extra Heavy Cardstock1:               	"@PJL SET FRONT_COVER_TYPE=<22>EXTRATHINCARDSTOCK1<220D0A>"
+*JCLFrontCoverType ExtraHeavyCardStock2/Extra Heavy Cardstock2:               	"@PJL SET FRONT_COVER_TYPE=<22>EXTRATHINCARDSTOCK2<220D0A>"
+*JCLFrontCoverType HeavyGlossy/Heavy Glossy:                     	"@PJL SET FRONT_COVER_TYPE=<22>HEAVYGLOSSY<220D0A>"
+*JCLFrontCoverType ThickEnvelope/Thick Envelope:                     	"@PJL SET FRONT_COVER_TYPE=<22>THICK_ENV<220D0A>"
+*JCLFrontCoverType ExtraHeavyWeight/Extra Heavy Weight:                     	"@PJL SET FRONT_COVER_TYPE=<22>EXTRAHEAVYWEIGHT<220D0A>"
+*JCLFrontCoverType HeavyCardStock1/Heavy Cardstock1:                     	"@PJL SET FRONT_COVER_TYPE=<22>HEAVYCARDSTOCK1<220D0A>"
+*JCLFrontCoverType HeavyCardStock2/Heavy Cardstock2:                     	"@PJL SET FRONT_COVER_TYPE=<22>HEAVYCARDSTOCK2<220D0A>"
+*JCLCloseUI: *JCLFrontCoverType
+
+*% =======================================================================================
+*%  Back Cover [OPTION]
+*% =======================================================================================
+*JCLOpenUI *JCLBackCoverOption/Back Cover Option: PickOne
+*OrderDependency: 10 JCLSetup *JCLBackCoverOption
+*DefaultJCLBackCoverOption: None
+*JCLBackCoverOption None/No Covers:						   ""
+*JCLBackCoverOption BlankPreprinted/Blank or Preprinted:   "@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>BACK<220D0A>@PJL SET BACK_COVER_OPTION=<22>BLANK<220D0A>"
+*JCLBackCoverOption 1SidedPrinted/1-Sided Printed: 		   "@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>BACK<220D0A>@PJL SET BACK_COVER_OPTION=<22>1SIDEPRINTED<220D0A>"
+*JCLBackCoverOption 2SidedPrinted/2-Sided Printed: 		   "@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>BACK<220D0A>@PJL SET BACK_COVER_OPTION=<22>2SIDEPRINTED<220D0A>"
+*JCLCloseUI: *JCLBackCoverOption
+
+*% =======================================================================================
+*%  Back Cover [Source]
+*% =======================================================================================
+*JCLOpenUI *JCLBackCoverSource/Back Cover Source: PickOne
+*OrderDependency: 10 JCLSetup *JCLBackCoverSource
+*DefaultJCLBackCoverSource: None
+*JCLBackCoverSource None/None:					""
+*JCLBackCoverSource Auto/Auto:					"@PJL SET BACK_COVER_TRAY=<22>AUTO<220D0A>"
+*JCLBackCoverSource ManualFeed/Manual:	      	"@PJL SET BACK_COVER_TRAY=<22>MANUAL<220D0A>"
+*JCLBackCoverSource Upper/MPTray:	      		"@PJL SET BACK_COVER_TRAY=<22>MPTRAY<220D0A>"
+*JCLBackCoverSource Middle/Tray 1: 			 	"@PJL SET BACK_COVER_TRAY=<22>UPPER<220D0A>"
+*JCLBackCoverSource Lower/Tray 2: 			 	"@PJL SET BACK_COVER_TRAY=<22>LOWER<220D0A>"
+*JCLBackCoverSource Tray3/Tray 3: 			 	"@PJL SET BACK_COVER_TRAY=<22>OPTIONTRAY3<220D0A>"
+*JCLBackCoverSource Tray4/Tray 4: 			    "@PJL SET BACK_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLBackCoverSource LowerH/Lower (HCT):         "@PJL SET BACK_COVER_TRAY=<22>LOWER<220D0A>"
+*JCLBackCoverSource Tray3H/Tray3 (HCT):         "@PJL SET BACK_COVER_TRAY=<22>OPTIONTRAY3<220D0A>"
+*JCLBackCoverSource Tray4H/Tray4 (HCT):         "@PJL SET BACK_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLBackCoverSource Tray4L/Tray4 (LCT):  "@PJL SET BACK_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLBackCoverSource Tray5/Tray 5: 			    "@PJL SET BACK_COVER_TRAY=<22>OPTIONTRAY5<220D0A>"
+*JCLBackCoverSource MPManual/MPManual:     		"@PJL SET BACK_COVER_TRAY=<22>MPTRAY<220D0A>"
+*JCLCloseUI: *JCLBackCoverSource
+
+*% =======================================================================================
+*%  Back Cover [Type]
+*% =======================================================================================
+*JCLOpenUI *JCLBackCoverType/Back Cover Type: PickOne
+*OrderDependency: 10 JCLSetup *JCLBackCoverType
+*DefaultJCLBackCoverType: NoCover
+*JCLBackCoverType NoCover/None: 									""
+*JCLBackCoverType None/PrinterDefault: 							    "@PJL SET BACK_COVER_TYPE=<22>OFF<220D0A>"
+*JCLBackCoverType Plain/Normal: 									"@PJL SET BACK_COVER_TYPE=<22>NORMAL<220D0A>"
+*JCLBackCoverType Thick/Thick: 									    "@PJL SET BACK_COVER_TYPE=<22>THICK<220D0A>"                                              
+*JCLBackCoverType ExtraThick/Extra Thick: 							"@PJL SET BACK_COVER_TYPE=<22>EXTRATHICK<220D0A>"
+*JCLBackCoverType Thin/Thin: 			   							"@PJL SET BACK_COVER_TYPE=<22>THIN<220D0A>"                                                 
+*JCLBackCoverType Bond/Bond: 			   							"@PJL SET BACK_COVER_TYPE=<22>BOND<220D0A>"                                                
+*JCLBackCoverType Color/Color: 			   						    "@PJL SET BACK_COVER_TYPE=<22>COLOR<220D0A>"                                             
+*JCLBackCoverType Card/CARD: 				   						"@PJL SET BACK_COVER_TYPE=<22>CARD<220D0A>"                                           
+*JCLBackCoverType Labels/Labels: 				   					"@PJL SET BACK_COVER_TYPE=<22>LABEL<220D0A>"                                             
+*JCLBackCoverType Transparency/OHP: 	    						"@PJL SET BACK_COVER_TYPE=<22>OHP<220D0A>"
+*JCLBackCoverType Envelope/ENV: 			   						"@PJL SET BACK_COVER_TYPE=<22>ENV<220D0A>"
+*JCLBackCoverType Preprinted/Preprinted: 		   					"@PJL SET BACK_COVER_TYPE=<22>USED<220D0A>"                                 
+*JCLBackCoverType Recycled/Recycle: 	   							"@PJL SET BACK_COVER_TYPE=<22>RECYCLED<220D0A>"
+*JCLBackCoverType Cotton/Cotton: 				   					"@PJL SET BACK_COVER_TYPE=<22>COTTON<220D0A>"                                         
+*JCLBackCoverType Archive/Archive:    	   							"@PJL SET BACK_COVER_TYPE=<22>ARCHIVE<220D0A>"                         
+*JCLBackCoverType Punched/Punched: 			   					    "@PJL SET BACK_COVER_TYPE=<22>PUNCHED<220D0A>"                        
+*JCLBackCoverType Letterhead/LetterHead: 		   					"@PJL SET BACK_COVER_TYPE=<22>LETTERHEAD<220D0A>"       
+*JCLBackCoverType Special/Special: 		   						    "@PJL SET BACK_COVER_TYPE=<22>SPECIAL<220D0A>"       
+*JCLBackCoverType HeavyWeight/Heavy Weight: 		   				    "@PJL SET BACK_COVER_TYPE=<22>HEAVYWEIGHT<220D0A>"                  
+*JCLBackCoverType Check/Personal Check: 		   					"@PJL SET BACK_COVER_TYPE=<22>CHECK<220D0A>"
+*JCLBackCoverType 3MDecal/3M Decal: 		   						"@PJL SET BACK_COVER_TYPE=<22>3MDECAL<220D0A>"
+*JCLBackCoverType ExtraHeavyWeight1/Extra Heavy Weight 1: 		   	"@PJL SET BACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT1<220D0A>"
+*JCLBackCoverType ExtraHeavyWeight2/Extra Heavy Weight 2: 		   	"@PJL SET BACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT2<220D0A>"
+*JCLBackCoverType ThinCardStock/Thin Cardstock:    		   		    "@PJL SET BACK_COVER_TYPE=<22>THINCARDSTOCK<220D0A>"
+*JCLBackCoverType ThickCardStock/Thick Cardstock:  		   		    "@PJL SET BACK_COVER_TYPE=<22>THICKCARDSTOCK<220D0A>"
+*JCLBackCoverType ThinGlossy/Thin Glossy:          		   		    "@PJL SET BACK_COVER_TYPE=<22>THINGLOSSY<220D0A>"
+*JCLBackCoverType ThickGlossy/Thick Glossy:        		   		    "@PJL SET BACK_COVER_TYPE=<22>THICKGLOSSY<220D0A>"
+*JCLBackCoverType Thicker/Thicker:        		  			        "@PJL SET BACK_COVER_TYPE=<22>THICKER<220D0A>"
+*JCLBackCoverType Photo111-130/Glossy Photo 111~130 g/m2:			"@PJL SET BACK_COVER_TYPE=<22>PHOTO111-130<220D0A>"
+*JCLBackCoverType Photo131-175/Glossy Photo 131~175 g/m2:			"@PJL SET BACK_COVER_TYPE=<22>PHOTO131-175<220D0A>"
+*JCLBackCoverType Photo176-220/Glossy Photo 176~220 g/m2:  		    "@PJL SET BACK_COVER_TYPE=<22>PHOTO176-220<220D0A>"
+*JCLBackCoverType MattePhoto111-130/Matte Photo 111-130 g/m2: 		"@PJL SET BACK_COVER_TYPE=<22>MATTEPHOTO111-130<220D0A>"
+*JCLBackCoverType MattePhoto131-175/Matte Photo 131-175 g/m2: 		"@PJL SET BACK_COVER_TYPE=<22>MATTEPHOTO131-175<220D0A>"
+*JCLBackCoverType MattePhoto176-220/Matte Photo 176-220 g/m2: 		"@PJL SET BACK_COVER_TYPE=<22>MATTEPHOTO131-175<220D0A>"
+*JCLBackCoverType None_Command/PrinterDefault:                      "@PJL SET BACK_COVER_TYPE=<22>OFF<220D0A>"
+*JCLBackCoverType ExtraHeavyWeight3/Extra Heavy Weight 3:     	"@PJL SET BACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT3<220D0A>"
+*JCLBackCoverType ExtraHeavyWeight4/Extra Heavy Weight 4:     	"@PJL SET BACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT4<220D0A>"
+*JCLBackCoverType HeavyCardStock/Heavy Cardstock:               	"@PJL SET BACK_COVER_TYPE=<22>HEAVYCARDSTOCK<220D0A>"
+*JCLBackCoverType ExtraHeavyCardStock1/Extra Heavy Cardstock1:               	"@PJL SET BACK_COVER_TYPE=<22>EXTRATHINCARDSTOCK1<220D0A>"
+*JCLBackCoverType ExtraHeavyCardStock2/Extra Heavy Cardstock2:               	"@PJL SET BACK_COVER_TYPE=<22>EXTRATHINCARDSTOCK2<220D0A>"
+*JCLBackCoverType HeavyGlossy/Heavy Glossy:                     	"@PJL SET BACK_COVER_TYPE=<22>HEAVYGLOSSY<220D0A>"
+*JCLBackCoverType ThickEnvelope/Thick Envelope:                     	"@PJL SET BACK_COVER_TYPE=<22>THICK_ENV<220D0A>"
+*JCLBackCoverType ExtraHeavyWeight/Extra Heavy Weight:                     	"@PJL SET BACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT<220D0A>"
+*JCLBackCoverType HeavyCardStock1/Heavy Cardstock1:                     	"@PJL SET BACK_COVER_TYPE=<22>HEAVYCARDSTOCK1<220D0A>"
+*JCLBackCoverType HeavyCardStock2/Heavy Cardstock2:                     	"@PJL SET BACK_COVER_TYPE=<22>HEAVYCARDSTOCK2<220D0A>"
+*JCLCloseUI: *JCLBackCoverType
+
+*% =======================================================================================
+*% Front and Back Cover [OPTION]
+*% =======================================================================================
+*JCLOpenUI *JCLFrontBackCoverOption/Front and Back Cover Option: PickOne
+*OrderDependency: 10 JCLSetup *JCLFrontBackCoverOption
+*DefaultJCLFrontBackCoverOption: None
+*JCLFrontBackCoverOption None/No Covers:							""
+*JCLFrontBackCoverOption BlankPreprinted/Blank or Preprinted: 		"@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>FRONTBACK<220D0A>@PJL SET FRONTBACK_COVER_OPTION=<22>BLANK<220D0A>"
+*JCLFrontBackCoverOption 1SidedPrinted/1-Sided Printed: 	 		"@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>FRONTBACK<220D0A>@PJL SET FRONTBACK_COVER_OPTION=<22>1SIDEPRINTED<220D0A>"
+*JCLFrontBackCoverOption 2SidedPrinted/2-Sided Printed: 	 		"@PJL SET FRONTBACK_COVER_ATTRIBUTE=<22>FRONTBACK<220D0A>@PJL SET FRONTBACK_COVER_OPTION=<22>2SIDEPRINTED<220D0A>"
+*JCLCloseUI: *JCLFrontBackCoverOption
+
+*% =======================================================================================
+*%  Front and Back Cover [Source]
+*% =======================================================================================
+*JCLOpenUI *JCLFrontBackCoverSource/Front and Back Cover Source: PickOne
+*OrderDependency: 10 JCLSetup *JCLFrontBackCoverSource
+*DefaultJCLFrontBackCoverSource: None
+*JCLFrontBackCoverSource None/None:							""
+*JCLFrontBackCoverSource Auto/Auto:					  		"@PJL SET FRONTBACK_COVER_TRAY=<22>AUTO<220D0A>"
+*JCLFrontBackCoverSource ManualFeed/Manual:					"@PJL SET FRONTBACK_COVER_TRAY=<22>MANUAL<220D0A>"
+*JCLFrontBackCoverSource Upper/MPTray:						"@PJL SET FRONTBACK_COVER_TRAY=<22>MPTRAY<220D0A>"
+*JCLFrontBackCoverSource Middle/Tray 1: 		  			"@PJL SET FRONTBACK_COVER_TRAY=<22>UPPER<220D0A>"
+*JCLFrontBackCoverSource Lower/Tray 2: 			  			"@PJL SET FRONTBACK_COVER_TRAY=<22>LOWER<220D0A>"
+*JCLFrontBackCoverSource Tray3/Tray 3: 			  			"@PJL SET FRONTBACK_COVER_TRAY=<22>OPTIONTRAY3<220D0A>"
+*JCLFrontBackCoverSource Tray4/Tray 4: 			  			"@PJL SET FRONTBACK_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLFrontBackCoverSource LowerH/Lower (HCT): 	            "@PJL SET FRONTBACK_COVER_TRAY=<22>LOWER<220D0A>"
+*JCLFrontBackCoverSource Tray3H/Tray3 (HCT): 	            "@PJL SET FRONTBACK_COVER_TRAY=<22>OPTIONTRAY3<220D0A>"
+*JCLFrontBackCoverSource Tray4H/Tray4 (HCT): 	            "@PJL SET FRONTBACK_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLFrontBackCoverSource Tray4L/Tray4 (LCT):  "@PJL SET FRONTBACK_COVER_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLFrontBackCoverSource Tray5/Tray 5: 			  			"@PJL SET FRONTBACK_COVER_TRAY=<22>OPTIONTRAY5<220D0A>"
+*JCLFrontBackCoverSource MPManual/MPManual:					"@PJL SET FRONTBACK_COVER_TRAY=<22>MPTRAY<220D0A>"
+*JCLCloseUI: *JCLFrontBackCoverSource
+
+*% =======================================================================================
+*%  Front and Back Cover [Type]
+*% =======================================================================================
+*JCLOpenUI *JCLFrontBackCoverType/Front and Back Cover Type: PickOne
+*OrderDependency: 10 JCLSetup *JCLFrontBackCoverType
+*DefaultJCLFrontBackCoverType: NoCover
+*JCLFrontBackCoverType NoCover/None: 									""
+*JCLFrontBackCoverType None/PrinterDefault: 							"@PJL SET FRONTBACK_COVER_TYPE=<22>OFF<220D0A>"
+*JCLFrontBackCoverType Plain/Normal: 									"@PJL SET FRONTBACK_COVER_TYPE=<22>NORMAL<220D0A>"
+*JCLFrontBackCoverType Thick/Thick: 									"@PJL SET FRONTBACK_COVER_TYPE=<22>THICK<220D0A>"    
+*JCLFrontBackCoverType ExtraThick/Extra Thick: 							"@PJL SET FRONTBACK_COVER_TYPE=<22>THICK<220D0A>"    
+*JCLFrontBackCoverType Thin/Thin: 			   							"@PJL SET FRONTBACK_COVER_TYPE=<22>THIN<220D0A>"                                                 
+*JCLFrontBackCoverType Bond/Bond: 			   							"@PJL SET FRONTBACK_COVER_TYPE=<22>BOND<220D0A>"                                                
+*JCLFrontBackCoverType Color/Color: 			   						"@PJL SET FRONTBACK_COVER_TYPE=<22>COLOR<220D0A>"                                             
+*JCLFrontBackCoverType Card/CARD: 				   						"@PJL SET FRONTBACK_COVER_TYPE=<22>CARD<220D0A>"                                           
+*JCLFrontBackCoverType Labels/Labels: 				   					"@PJL SET FRONTBACK_COVER_TYPE=<22>LABEL<220D0A>"                                             
+*JCLFrontBackCoverType Transparency/OHP: 	    						"@PJL SET FRONTBACK_COVER_TYPE=<22>OHP<220D0A>"
+*JCLFrontBackCoverType Envelope/ENV: 			   						"@PJL SET FRONTBACK_COVER_TYPE=<22>ENV<220D0A>"
+*JCLFrontBackCoverType Preprinted/Preprinted: 		   					"@PJL SET FRONTBACK_COVER_TYPE=<22>USED<220D0A>"
+*JCLFrontBackCoverType Recycled/Recycle: 	   							"@PJL SET FRONTBACK_COVER_TYPE=<22>RECYCLED<220D0A>"                                 
+*JCLFrontBackCoverType Cotton/Cotton: 				   					"@PJL SET FRONTBACK_COVER_TYPE=<22>COTTON<220D0A>"                                         
+*JCLFrontBackCoverType Archive/Archive:    	   							"@PJL SET FRONTBACK_COVER_TYPE=<22>ARCHIVE<220D0A>"                         
+*JCLFrontBackCoverType Punched/Punched: 			   					"@PJL SET FRONTBACK_COVER_TYPE=<22>PUNCHED<220D0A>"                        
+*JCLFrontBackCoverType Letterhead/LetterHead: 		   					"@PJL SET FRONTBACK_COVER_TYPE=<22>LETTERHEAD<220D0A>"          
+*JCLFrontBackCoverType Special/Special: 		   						"@PJL SET FRONTBACK_COVER_TYPE=<22>SPECIAL<220D0A>"          
+*JCLFrontBackCoverType HeavyWeight/Heavy Weight: 		   				"@PJL SET FRONTBACK_COVER_TYPE=<22>HEAVYWEIGHT<220D0A>"                 
+*JCLFrontBackCoverType Check/Personal Check: 		   					"@PJL SET FRONTBACK_COVER_TYPE=<22>CHECK<220D0A>"
+*JCLFrontBackCoverType 3MDecal/3M Decal: 		   						"@PJL SET FRONTBACK_COVER_TYPE=<22>3MDECAL<220D0A>"
+*JCLFrontBackCoverType ExtraHeavyWeight1/Extra Heavy Weight 1: 		   	"@PJL SET FRONTBACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT1<220D0A>"
+*JCLFrontBackCoverType ExtraHeavyWeight2/Extra Heavy Weight 2: 		   	"@PJL SET FRONTBACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT2<220D0A>"
+*JCLFrontBackCoverType ThinCardStock/Thin Cardstock:    		   		"@PJL SET FRONTBACK_COVER_TYPE=<22>THINCARDSTOCK<220D0A>"
+*JCLFrontBackCoverType ThickCardStock/Thick Cardstock:  		   		"@PJL SET FRONTBACK_COVER_TYPE=<22>THICKCARDSTOCK<220D0A>"
+*JCLFrontBackCoverType ThinGlossy/Thin Glossy:          		   		"@PJL SET FRONTBACK_COVER_TYPE=<22>THINGLOSSY<220D0A>"
+*JCLFrontBackCoverType ThickGlossy/Thick Glossy:        		   		"@PJL SET FRONTBACK_COVER_TYPE=<22>THICKGLOSSY<220D0A>"
+*JCLFrontBackCoverType Thicker/Thicker:        		  			        "@PJL SET FRONTBACK_COVER_TYPE=<22>THICKER<220D0A>"
+*JCLFrontBackCoverType Photo111-130/Glossy Photo 111~130 g/m2:			"@PJL SET FRONTBACK_COVER_TYPE=<22>PHOTO111-130<220D0A>"
+*JCLFrontBackCoverType Photo131-175/Glossy Photo 131~175 g/m2:			"@PJL SET FRONTBACK_COVER_TYPE=<22>PHOTO131-175<220D0A>"
+*JCLFrontBackCoverType Photo176-220/Glossy Photo 176~220 g/m2:  		"@PJL SET FRONTBACK_COVER_TYPE=<22>PHOTO176-220<220D0A>"
+*JCLFrontBackCoverType MattePhoto111-130/Matte Photo 111-130 g/m2: 		"@PJL SET FRONTBACK_COVER_TYPE=<22>MATTEPHOTO111-130<220D0A>"
+*JCLFrontBackCoverType MattePhoto131-175/Matte Photo 131-175 g/m2: 		"@PJL SET FRONTBACK_COVER_TYPE=<22>MATTEPHOTO131-175<220D0A>"
+*JCLFrontBackCoverType MattePhoto176-220/Matte Photo 176-220 g/m2: 		"@PJL SET FRONTBACK_COVER_TYPE=<22>MATTEPHOTO131-175<220D0A>"
+*JCLFrontBackCoverType None_Command/PrinterDefault:                     "@PJL SET FRONTBACK_COVER_TYPE=<22>OFF<220D0A>"
+*JCLFrontBackCoverType ExtraHeavyWeight3/Extra Heavy Weight 3:     	"@PJL SET FRONTBACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT3<220D0A>"
+*JCLFrontBackCoverType ExtraHeavyWeight4/Extra Heavy Weight 4:     	"@PJL SET FRONTBACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT4<220D0A>"
+*JCLFrontBackCoverType HeavyCardStock/Heavy Cardstock:               	"@PJL SET FRONTBACK_COVER_TYPE=<22>HEAVYCARDSTOCK<220D0A>"
+*JCLFrontBackCoverType ExtraHeavyCardStock1/Extra Heavy Cardstock1:               	"@PJL SET FRONTBACK_COVER_TYPE=<22>EXTRATHINCARDSTOCK1<220D0A>"
+*JCLFrontBackCoverType ExtraHeavyCardStock2/Extra Heavy Cardstock2:               	"@PJL SET FRONTBACK_COVER_TYPE=<22>EXTRATHINCARDSTOCK2<220D0A>"
+*JCLFrontBackCoverType HeavyGlossy/Heavy Glossy:                     	"@PJL SET FRONTBACK_COVER_TYPE=<22>HEAVYGLOSSY<220D0A>"
+*JCLFrontBackCoverType ThickEnvelope/Thick Envelope:                     	"@PJL SET FRONTBACK_COVER_TYPE=<22>THICK_ENV<220D0A>"
+*JCLFrontBackCoverType ExtraHeavyWeight/Extra Heavy Weight:                     	"@PJL SET FRONTBACK_COVER_TYPE=<22>EXTRAHEAVYWEIGHT<220D0A>"
+*JCLFrontBackCoverType HeavyCardStock1/Heavy Cardstock1:                     	"@PJL SET FRONTBACK_COVER_TYPE=<22>HEAVYCARDSTOCK1<220D0A>"
+*JCLFrontBackCoverType HeavyCardStock2/Heavy Cardstock2:                     	"@PJL SET FRONTBACK_COVER_TYPE=<22>HEAVYCARDSTOCK2<220D0A>"
+*JCLCloseUI: *JCLFrontBackCoverType
+
+*% =======================================================================================
+*%  Transparency Separator [Option]
+*% =======================================================================================
+*JCLOpenUI *JCLSeparatorsOption/Transparency Separator: PickOne
+*OrderDependency: 10 JCLSetup *JCLSeparatorsOption
+*DefaultJCLSeparatorsOption: None
+*JCLSeparatorsOption None/No Separator:""
+*JCLSeparatorsOption PrintedSeparator/Printed Separator:"@PJL SET OHP_SEPARATOR_OPTION=<22>PRINTED<220D0A>"
+*JCLSeparatorsOption BlankSeparator/Blank Separator: 	"@PJL SET OHP_SEPARATOR_OPTION=<22>BLANK<220D0A>"
+*JCLCloseUI: *JCLSeparatorsOption
+
+*% =======================================================================================
+*%  Transparency Separator [Source]
+*% =======================================================================================
+*JCLOpenUI *JCLSeparatorsSource/Separators Source: PickOne
+*OrderDependency: 10 JCLSetup *JCLSeparatorsSource
+*DefaultJCLSeparatorsSource: None
+*JCLSeparatorsSource None/None:					"@PJL SET OHP_SEPARATOR_TRAY=<22>AUTO<220D0A>"
+*JCLSeparatorsSource ManualFeed/Manual:			"@PJL SET OHP_SEPARATOR_TRAY=<22>MANUAL<220D0A>"
+*JCLSeparatorsSource Upper/MPTray:				"@PJL SET OHP_SEPARATOR_TRAY=<22>MPTRAY<220D0A>"
+*JCLSeparatorsSource Middle/Tray 1: 		  	"@PJL SET OHP_SEPARATOR_TRAY=<22>UPPER<220D0A>"
+*JCLSeparatorsSource Lower/Tray 2: 			  	"@PJL SET OHP_SEPARATOR_TRAY=<22>LOWER<220D0A>"
+*JCLSeparatorsSource Tray3/Tray 3: 			  	"@PJL SET OHP_SEPARATOR_TRAY=<22>OPTIONTRAY3<220D0A>"
+*JCLSeparatorsSource Tray4/Tray 4: 			  	"@PJL SET OHP_SEPARATOR_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLSeparatorsSource LowerH/Lower (HCT): 	    "@PJL SET OHP_SEPARATOR_TRAY=<22>LOWER<220D0A>"
+*JCLSeparatorsSource Tray3H/Tray3 (HCT): 	    "@PJL SET OHP_SEPARATOR_TRAY=<22>OPTIONTRAY3<220D0A>"
+*JCLSeparatorsSource Tray4H/Tray4 (HCT): 	    "@PJL SET OHP_SEPARATOR_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLSeparatorsSource Tray4L/Tray4 (LCT):  "@PJL SET OHP_SEPARATOR_TRAY=<22>OPTIONTRAY4<220D0A>"
+*JCLSeparatorsSource Tray5/Tray 5: 	            "@PJL SET OHP_SEPARATOR_TRAY=<22>OPTIONTRAY5<220D0A>"
+*JCLSeparatorsSource MPManual/MPManual:			"@PJL SET OHP_SEPARATOR_TRAY=<22>MPTRAY<220D0A>"
+*JCLCloseUI: *JCLSeparatorsSource
+
+*% =======================================================================================
+*%  Paper Source / 271
+*% =======================================================================================
+*OpenUI *InputSlot/Paper Source: PickOne
+*OrderDependency: 20 AnySetup *InputSlot
+*DefaultInputSlot: Auto
+*InputSlot Auto/Auto:    		"<< /ManualFeed false /MediaPosition null >> setpagedevice"
+*InputSlot Upper/MPTray: 		"<< /ManualFeed false /MediaPosition 2 >> setpagedevice"
+*InputSlot ManualFeed/Manual:	"<< /ManualFeed true>> setpagedevice"
+*InputSlot Middle/Upper: 		"<< /ManualFeed false /MediaPosition 1 >> setpagedevice"
+*InputSlot Lower/Lower:  		"<< /ManualFeed false /MediaPosition 3 >> setpagedevice"
+*InputSlot LowerH/Lower (HCT): 	"<< /ManualFeed false /MediaPosition 3 >> setpagedevice"
+*InputSlot Tray3/Tray3:  		"<< /ManualFeed false /MediaPosition 4 >> setpagedevice"
+*InputSlot Tray3H/Tray3 (HCT): 	"<< /ManualFeed false /MediaPosition 4 >> setpagedevice"
+*InputSlot Tray4/Tray4:  		"<< /ManualFeed false /MediaPosition 5 >> setpagedevice"
+*InputSlot Tray4H/Tray4 (HCT):  "<< /ManualFeed false /MediaPosition 5 >> setpagedevice"
+*InputSlot Tray5/Tray5:  		"<< /ManualFeed false /MediaPosition 6 >> setpagedevice"
+*InputSlot MPManual/MPManual:	"<< /ManualFeed false /MediaPosition 2 >> setpagedevice"
+*InputSlot Tray4L/Tray4 (LCT):  "<< /ManualFeed false /MediaPosition 5 >> setpagedevice"
+*InputSlot TAuto/TAuto:         "<< /ManualFeed false /MediaPosition 9 >> setpagedevice"
+*InputSlot TTray1/TTray1:       "<< /ManualFeed false /MediaPosition 0 >> setpagedevice"
+*CloseUI: *InputSlot
+
+*% =======================================================================================
+*%  Screen
+*% =======================================================================================
+*JCLOpenUI *JCLScreen/Screen: PickOne
+*OrderDependency: 10 JCLSetup *JCLScreen
+*DefaultJCLScreen: None
+*JCLScreen None/Printer Default:				""
+*JCLScreen Normal/Normal:						""
+*JCLScreen Enhanced/Enhanced:					""
+*JCLScreen Detailed/Detailed:					""
+*JCLCloseUI: *JCLScreen
+
+*% =======================================================================================
+*%  JCLBlackOptimization
+*% =======================================================================================
+*JCLOpenUI *JCLBlackOptimization/Black Optimization: Boolean
+*OrderDependency: 10 JCLSetup *JCLBlackOptimization
+*DefaultJCLBlackOptimization: False
+*JCLBlackOptimization False/Off:                   "@PJL SET BLACKOPTIMIZATION=OFF<0D0A>"
+*JCLBlackOptimization True/On:                     "@PJL SET BLACKOPTIMIZATION=ON<0D0A>"
+*JCLBlackOptimization CMY/CMY:                     "@PJL SET BLACKOPTIMIZATION=K_CMY<0D0A>"
+*JCLCloseUI: *JCLBlackOptimization
+
+*% =======================================================================================
+*%  User Defined Color Table
+*% =======================================================================================
+*OpenUI *SECUserDefinedColor/User Defined Color:  Boolean
+*OrderDependency: 10 AnySetup *SECUserDefinedColor
+*DefaultSECUserDefinedColor: True
+*%SECUserDefinedColor False/Off: ""
+*SECUserDefinedColor True/On: ""
+*CloseUI: *SECUserDefinedColor
+
+*% =======================================================================================
+*%  Glossy Printing
+*% =======================================================================================
+*JCLOpenUI *JCLGlossyPrinting/Glossy Printing: Boolean
+*OrderDependency: 10 JCLSetup *JCLGlossyPrinting
+*DefaultJCLGlossyPrinting: False
+*JCLGlossyPrinting False/Off:                   ""
+*JCLGlossyPrinting True/On:                     "@PJL SET GLOSSYPRINTING=ON<0D0A>"
+*JCLCloseUI: *JCLGlossyPrinting
+
+*% =======================================================================================
+*%  Paper Handling
+*% =======================================================================================
+*% Use these entries to set paper size unless there is a specific
+*% reason to use PageRegion, such as when using manual feed.
+*OpenUI *PageSize/PageSize: PickOne
+*OrderDependency: 30 AnySetup *PageSize
+*DefaultPageSize: Letter                
+*PageSize A4/A4:					"<</PageSize [595 842] /ImagingBBox null>> setpagedevice"
+*PageSize A3/A3:					"<</PageSize [842 1191] /ImagingBBox null>> setpagedevice"
+*PageSize A5/A5:					"<</PageSize [420 595] /ImagingBBox null>> setpagedevice"
+*PageSize A6/A6:					"<</PageSize [297 420] /ImagingBBox null>> setpagedevice"
+*PageSize SRA3/SRA3:				"<</PageSize [907 1276] /ImagingBBox null>> setpagedevice"
+*PageSize B4/JISB4:					"<</PageSize [729 1032] /ImagingBBox null>> setpagedevice"
+*PageSize B5-JIS/JISB5:				"<</PageSize [516 729] /ImagingBBox null>> setpagedevice"
+*PageSize B5-ISO/B5Env:				"<</PageSize [499 709] /ImagingBBox null>> setpagedevice"
+*PageSize B6/JIS B6:                "<</PageSize [363 516] /ImagingBBox null>> setpagedevice"
+*PageSize 8K/8K_S:					"<</PageSize [766 1106] /ImagingBBox null>> setpagedevice"
+*PageSize 16K/16K_S:					"<</PageSize [553 766] /ImagingBBox null>> setpagedevice"
+*PageSize Letter/Letter:			"<</PageSize [612 792] /ImagingBBox null>> setpagedevice"
+*PageSize Tabloid/Tabloid:			"<</PageSize [792 1224] /ImagingBBox null>> setpagedevice"
+*PageSize Legal/Legal:				"<</PageSize [612 1008] /ImagingBBox null>> setpagedevice"
+*PageSize Statement/Statement:		"<</PageSize [396 612] /ImagingBBox null>> setpagedevice"
+*PageSize Executive/Exec:			"<</PageSize [522 756] /ImagingBBox null>> setpagedevice"
+*PageSize US-Folio/Folio:			"<</PageSize [612 936] /ImagingBBox null>> setpagedevice"
+*PageSize Oficio_S/Oficio:			"<</PageSize [612 972] /ImagingBBox null>> setpagedevice"
+*PageSize USPostCard/US PostCard: 	"<</PageSize [252 396] /ImagingBBox null>> setpagedevice"
+*PageSize Postcard_S/Postcard:		"<</PageSize [288 432] /ImagingBBox null>> setpagedevice"
+*PageSize JPost/Postcard_100_148:	"<</PageSize [284 419] /ImagingBBox null>> setpagedevice"
+*PageSize IndexCard/Index Card: 	"<</PageSize [216 360] /ImagingBBox null>> setpagedevice"
+*PageSize 12x18/Tabloid Extra:		"<</PageSize [864 1296] /ImagingBBox null>> setpagedevice"
+*PageSize DMVPage/2.75" x 6": 		"<</PageSize [198 432] /ImagingBBox null>> setpagedevice"
+*PageSize EnvC5/C5:					"<</PageSize [459 649] /ImagingBBox null>> setpagedevice"
+*PageSize EnvC4/C4Envelope:			"<</PageSize [649 918] /ImagingBBox null>> setpagedevice"
+*PageSize EnvC6/C6Env:				"<</PageSize [323 459] /ImagingBBox null>> setpagedevice"
+*PageSize EnvDL/DL:					"<</PageSize [312 624] /ImagingBBox null>> setpagedevice"
+*PageSize Env10/Com10:				"<</PageSize [297 684] /ImagingBBox null>> setpagedevice"
+*PageSize Env9/Env No9:				"<</PageSize [279 639] /ImagingBBox null>> setpagedevice"
+*PageSize EnvMonarch/Monarch:		"<</PageSize [279 540] /ImagingBBox null>> setpagedevice"
+*PageSize EnvPersonal/Env Personal: "<</PageSize [261 468] /ImagingBBox null>> setpagedevice"
+*?PageSize: "
+save currentpagedevice /PageSize get aload pop
+   2 copy gt {exch} if (Unknown) 32 dict
+   dup [595 842] (A4) put   
+   dup [842 1191] (A3) put
+   dup [420 595] (A5) put
+   dup [297 420] (A6) put
+   dup [907 1276] (SRA3) put   
+   dup [729 1032] (B4) put
+   dup [516 729] (B5-JIS) put
+   dup [499 709] (B5-ISO) put
+   dup [363 516] (B6) put   
+   dup [766 1106] (8K) put
+   dup [553 766] (16K) put
+   dup [612 792] (Letter) put
+   dup [792 1224] (Tabloid) put
+   dup [612 1008] (Legal) put
+   dup [396 612] (Statement) put
+   dup [522 756] (Executive) put
+   dup [612 936] (US-Folio) put
+   dup [612 972] (Oficio_S) put
+   dup [252 396] (USPostCard) put
+   dup [288 432] (Postcard_S) put
+   dup [284 419] (JPost) put   
+   dup [216 360] (IndexCard) put
+   dup [864 1296] (12x18) put
+   dup [198 432] (DMVPage) put
+   dup [459 649] (EnvC5) put
+   dup [649 918] (EnvC4) put
+   dup [323 459] (EnvC6) put
+   dup [312 624] (EnvDL) put 
+   dup [297 684] (Env10) put
+   dup [279 639] (Env9) put
+   dup [279 540] (EnvMonarch) put
+   dup [261 468] (EnvPersonal) put   
+ {exch aload pop 4 index sub abs 5 le exch 5 index
+ sub abs 5 le and  {exch pop exit} {pop} ifelse}
+ bind forall  = flush pop pop restore
+"
+*End
+*CloseUI: *PageSize
+
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 40 AnySetup *PageRegion
+*DefaultPageRegion: Letter
+*PageRegion A4/A4:					    "<</PageSize [595 842] /ImagingBBox null>> setpagedevice"
+*PageRegion A3/A3:					    "<</PageSize [842 1191] /ImagingBBox null>> setpagedevice"
+*PageRegion A5/A5:					    "<</PageSize [420 595] /ImagingBBox null>> setpagedevice"
+*PageRegion A6/A6:					    "<</PageSize [297 420] /ImagingBBox null>> setpagedevice"
+*PageRegion SRA3/SRA3:				    "<</PageSize [907 1276] /ImagingBBox null>> setpagedevice"
+*PageRegion B4/JISB4:					"<</PageSize [729 1032] /ImagingBBox null>> setpagedevice"
+*PageRegion B5-JIS/JISB5:				"<</PageSize [516 729] /ImagingBBox null>> setpagedevice"
+*PageRegion B5-ISO/B5Env:				"<</PageSize [499 709] /ImagingBBox null>> setpagedevice"
+*PageRegion B6/JIS B6:                  "<</PageSize [363 516] /ImagingBBox null>> setpagedevice"
+*PageRegion 8K/8K_S:						"<</PageSize [766 1106] /ImagingBBox null>> setpagedevice"
+*PageRegion 16K/16K_S:					"<</PageSize [553 766] /ImagingBBox null>> setpagedevice"
+*PageRegion Letter/Letter:			    "<</PageSize [612 792] /ImagingBBox null>> setpagedevice"
+*PageRegion Tabloid/Tabloid:			"<</PageSize [792 1224] /ImagingBBox null>> setpagedevice"
+*PageRegion Legal/Legal:				"<</PageSize [612 1008] /ImagingBBox null>> setpagedevice"
+*PageRegion Statement/Statement:		"<</PageSize [396 612] /ImagingBBox null>> setpagedevice"
+*PageRegion Executive/Exec:			    "<</PageSize [522 756] /ImagingBBox null>> setpagedevice"
+*PageRegion US-Folio/Folio:			    "<</PageSize [612 936] /ImagingBBox null>> setpagedevice"
+*PageRegion Oficio_S/Oficio:			"<</PageSize [612 972] /ImagingBBox null>> setpagedevice"
+*PageRegion USPostCard/US PostCard: 	"<</PageSize [252 396] /ImagingBBox null>> setpagedevice"
+*PageRegion Postcard_S/Postcard:		"<</PageSize [288 432] /ImagingBBox null>> setpagedevice"
+*PageRegion JPost/Postcard_100_148:	    "<</PageSize [284 419] /ImagingBBox null>> setpagedevice"
+*PageRegion IndexCard/Index Card: 	    "<</PageSize [216 360] /ImagingBBox null>> setpagedevice"
+*PageRegion 12x18/Tabloid Extra:		"<</PageSize [864 1296] /ImagingBBox null>> setpagedevice"
+*PageRegion DMVPage/2.75" x 6": 		"<</PageSize [198 432] /ImagingBBox null>> setpagedevice"
+*PageRegion EnvC5/C5:					"<</PageSize [459 649] /ImagingBBox null>> setpagedevice"
+*PageRegion EnvC4/C4Envelope:			"<</PageSize [649 918] /ImagingBBox null>> setpagedevice"
+*PageRegion EnvC6/C6Env:				"<</PageSize [323 459] /ImagingBBox null>> setpagedevice"
+*PageRegion EnvDL/DL:					"<</PageSize [312 624] /ImagingBBox null>> setpagedevice"
+*PageRegion Env10/Com10:				"<</PageSize [297 684] /ImagingBBox null>> setpagedevice"
+*PageRegion Env9/Env No9:				"<</PageSize [279 639] /ImagingBBox null>> setpagedevice"
+*PageRegion EnvMonarch/Monarch:		    "<</PageSize [279 540] /ImagingBBox null>> setpagedevice"
+*PageRegion EnvPersonal/Env Personal:   "<</PageSize [261 468] /ImagingBBox null>> setpagedevice"
+*CloseUI: *PageRegion
+
+*% These entries provide the imageable areas of the media option keywords
+*DefaultImageableArea: Letter
+*ImageableArea A4/A4: 				               "12.50 12.50 582.50 829.50"
+*ImageableArea A3/A3: 						       "12.50 12.50 829.50 1178.40"
+*ImageableArea A5/A5: 				               "12.50 12.50 407.50 582.50"
+*ImageableArea A6/A6: 				               "12.50 12.50 284.50 407.50"
+*ImageableArea SRA3/SRA3:					       "12.50 12.50 894.50 1263.50"
+*ImageableArea B4/JISB4:					       "12.50 12.50 716.50 1019.50"
+*ImageableArea B5-JIS/JISB5: 		               "12.50 12.50 503.50 715.50"
+*ImageableArea B5-ISO/B5Env: 		               "12.50 12.50 485.50 695.50"
+*ImageableArea B6/JIS B6: 					       "12.50 12.50	350.50 503.50"
+*ImageableArea 8K/8K_S:						       "12.50 12.50 753.50 1093.50"
+*ImageableArea 16K/16K_S:						       "12.50 12.50 540.50 753.50"
+*ImageableArea Letter/Letter: 		               "12.50 12.50 599.50 779.50"
+*ImageableArea Tabloid/Tabloid:				       "12.50 12.50 779.50 1211.50"
+*ImageableArea Legal/Legal: 			           "12.50 12.50 599.50 995.50"
+*ImageableArea Statement/Statement:                "12.50 12.50 383.50 599.50"
+*ImageableArea Executive/Exec: 		               "12.50 11.00 509.50 744.00"
+*ImageableArea US-Folio/Folio: 		               "12.50 12.50 599.50 923.50"
+*ImageableArea Oficio_S/Oficio: 		           "12.50 12.50 599.50 959.50"
+*ImageableArea USPostCard/US PostCard: 	    	   "12.50 12.50	239.50 383.50"
+*ImageableArea Postcard_S/Postcard:                "12.50 12.50 275.50 419.50"
+*ImageableArea JPost/Postcard_100_148:             "12.50 12.50 271.50 406.50"
+*ImageableArea IndexCard/Index Card: 		       "12.50 12.50	203.50 347.50"
+*ImageableArea 12x18/Tabloid Extra:			       "12.50 12.50 851.50 1283.50"
+*ImageableArea DMVPage/2.75" x 6": 		    	   "12.50 12.50 185.50 419.50"
+*ImageableArea EnvC5/C5: 			               "12.50 12.50 446.50 635.50"
+*ImageableArea EnvC4/C4Envelope:			       "12.50 12.50 636.50 905.50"
+*ImageableArea EnvC6/C6Env: 			           "12.50 12.50 310.50 446.50"
+*ImageableArea EnvDL/DL: 			               "12.50 12.50 299.50 610.50"
+*ImageableArea Env10/Com10: 		               "12.50 12.50 284.50 670.50"
+*ImageableArea Env9/Env No9:				       "12.50 12.50 266.50 626.50"
+*ImageableArea EnvMonarch/Monarch:                 "12.50 12.50 266.50 527.50"
+*ImageableArea EnvPersonal/Env Personal:           "12.50 12.50	248.50 455.50"
+*?ImageableArea: "
+ 	save /cvp { cvi (            ) cvs print ( ) print } bind def
+  	newpath clippath pathbbox
+  	4 -2 roll exch 2 {ceiling cvp} repeat
+ 	 exch 2 {floor cvp} repeat flush
+	 restore"
+*End
+
+*% These provide the physical dimensions of the media, by option keyword.
+*DefaultPaperDimension: Letter
+*PaperDimension A4/A4: 				     "595 842"
+*PaperDimension A3/A3: 					 "842 1191"
+*PaperDimension A5/A5: 				     "420 595"
+*PaperDimension A6/A6: 				     "297 420"
+*PaperDimension SRA3/SRA3:				 "907 1276"
+*PaperDimension B4/JISB4:				 "729 1032"
+*PaperDimension B5-JIS/JISB5: 		     "516 729"
+*PaperDimension B5-ISO/B5Env: 		     "499 709"
+*PaperDimension B6/JIS B6: 				 "363 516"
+*PaperDimension 8K/8K_S:				  	 "766 1106"
+*PaperDimension 16K/16K_S:				 "553 766"
+*PaperDimension Letter/Letter: 		     "612 792"
+*PaperDimension Tabloid/Tabloid:		 "792 1224"
+*PaperDimension Legal/Legal: 			 "612 1008"
+*PaperDimension Statement/Statement:     "396 612"
+*PaperDimension Executive/Exec: 		 "522 756"
+*PaperDimension US-Folio/Folio: 		 "612 936"
+*PaperDimension Oficio_S/Oficio: 		 "612 972"
+*PaperDimension USPostCard/US PostCard:  "252 396"
+*PaperDimension Postcard_S/Postcard:     "288 432"
+*PaperDimension JPost/Postcard_100_148:	 "284 419"
+*PaperDimension IndexCard/Index Card: 	 "216 360"
+*PaperDimension 12x18/Tabloid Extra:	 "864 1296"
+*PaperDimension DMVPage/2.75" x 6": 	 "198 432"
+*PaperDimension EnvC5/C5: 			     "459 649"
+*PaperDimension EnvC4/C4Envelope:	  	 "649 918"
+*PaperDimension EnvC6/C6Env: 			 "323 459"
+*PaperDimension EnvDL/DL: 			     "312 624"
+*PaperDimension Env10/Com10: 		     "297 684"
+*PaperDimension Env9/Env No9:			 "279 639"
+*PaperDimension EnvMonarch/Monarch:      "279 540"
+*PaperDimension EnvPersonal/Env Personal:"261 468"
+*%=== Custom Paper Support =================
+*VariablePaperSize: True
+
+*LeadingEdge Short: ""
+*DefaultLeadingEdge: Short
+
+*MaxMediaWidth: "907.2"
+*MaxMediaHeight: "3402"
+*HWMargins: 16 16 16 16
+*CustomPageSize True: "
+     pop pop pop 
+   <</PageSize [ 5 -2 roll ] /Policies << /PageSize 7 >> /ImagingBBox null >> setpagedevice
+"
+*End
+
+*ParamCustomPageSize Width: 1 points 181.4 907.2
+*ParamCustomPageSize Height: 2 points 360 3402
+*ParamCustomPageSize WidthOffset: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 1 1
+
+*RequiresPageRegion All: True
+*LandscapeOrientation: Plus90
+*% =======================================================================================
+*%  User Interface Constraints
+*% =======================================================================================
+
+*% ++++++++++++++++++++++
+
+*%  Font Information
+*% ++++++++++++++++++++++
+*DefaultFont: Courier
+*Font Courier-Bold: Standard "(001.001)" Standard ROM
+*Font Courier-BoldOblique: Standard "(001.001)" Standard ROM
+*Font Courier-Oblique: Standard "(001.001)" Standard ROM
+*Font Courier: Standard "(001.001)" Standard ROM
+
+*?FontQuery: "save
+{count 1 gt
+  {exch dup 127 string cvs (/)print print (:)print
+   /Font resourcestatus
+   {pop pop (Yes)} {(No)} ifelse =
+  }
+  {exit}
+  ifelse
+} bind loop
+(*) = flush
+restore"
+*End
+
+*?FontList: "save
+ (*) {cvn ==} 128 string /Font resourceforall
+ (*) = flush
+restore"
+*End

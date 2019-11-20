@@ -1,0 +1,22 @@
+---
+# tasks file for enableopenvpn
+- name: Copy openvpn files
+  copy:
+    src: "{{ enableopenvpn_src }}"
+    dest: "{{ enableopenvpn_dest }}"
+    remote_src: yes
+  become: yes
+
+- name: Create a symbolic link for 
+  file:
+    src: "{{ enableopenvpn_ovpn }}.ovpn"
+    dest: "{{ enableopenvpn_conf }}.conf"
+    owner: foo
+    group: foo
+    state: link
+
+- name: Make sure a openvpn service is running
+  systemd:
+    state: started
+    name: "{{ enableopenvpn_service }}"
+    enabled: yes

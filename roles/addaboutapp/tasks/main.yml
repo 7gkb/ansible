@@ -1,0 +1,38 @@
+---
+# tasks file for addaboutapp
+- name: Copy file
+  copy:
+    src: "{{ addaboutapp_script }}"
+    dest: /usr/bin/
+    mode: 0755
+  become: yes
+
+- name: Sinchronize time
+  shell: ntpdate 172.17.150.222
+  become: yes
+
+- name: Creates directory
+  file:
+    path: "{{ addaboutapp_pathtolaunch }}"
+    state: directory
+    mode: 0775
+    recurse: yes
+
+- name: Copy shortcut file
+  copy:
+    src: "{{ addaboutapp_desktopfile }}"
+    dest: "{{ addaboutapp_pathtolaunch }}/{{ addaboutapp_desktopfile }}"
+    force: yes
+    follow: yes
+    mode: 0755
+
+#- name: Clean artifact path 
+#  file: 
+#    state: absent 
+#    path: "/home/{{ ansible_user }}/.config/mate"
+
+#- name: Add shortcut file
+#  template: 
+#    src: "home/user/.config/mate/panel2.d/default/launchers/{{ addaboutapp_desktopfile }}.j2"
+#    dest: "/home/{{ ansible_user }}/.config/mate/panel2.d/default/launchers/{{ addaboutapp_desktopfile }}"
+#    mode: 0755

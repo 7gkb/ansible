@@ -1,0 +1,6 @@
+---
+ansible_user: admingkb7
+ansible_ssh_pass: 2w3e4r!
+ansible_become_method: su
+ansible_become_user: root
+ansible_become_pass: Nfgjxrb72Hfpvthf
