@@ -1,22 +1,25 @@
 ---
-# tasks file for enableopenvpn
-- name: Copy openvpn files
-  copy:
-    src: "{{ enableopenvpn_src }}"
-    dest: "{{ enableopenvpn_dest }}"
-    remote_src: yes
+# tasks file for enableopenvpn {{ ansible_hostname }} {{ inventory_hostname }}
+- name: Copy openvpn files to {{ ansible_hostname }}
+  shell: cp -rf {{ enableopenvpn_src }} {{ enableopenvpn_dest }}
   become: yes
 
-- name: Create a symbolic link for 
+- name: Create a symbolic link for openvpnconf
   file:
-    src: "{{ enableopenvpn_ovpn }}.ovpn"
-    dest: "{{ enableopenvpn_conf }}.conf"
-    owner: foo
-    group: foo
+    src: "{{ enableopenvpn_ovpn }}"
+    dest: "{{ enableopenvpn_conf }}"
     state: link
+  become: yes
 
 - name: Make sure a openvpn service is running
   systemd:
     state: started
     name: "{{ enableopenvpn_service }}"
     enabled: yes
+  become: yes
+
+- name: Update routes
+  shell: nmcli connection modify "NETWORK" +ipv4.routes "{{ item[0] }} {{ item[1] }}"
+  with_items:
+    - "{{ enableopenvpn_routes }}"
+  become: yes

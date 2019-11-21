@@ -1,0 +1,11 @@
+---
+- hosts: room23
+  roles:
+#   - 1C-install_think-client
+#   - rename
+   - enableopenvpn
+#    - role: "{{ item }}"
+#  with_items:
+#      - 1C-install_think-client
+#      - rename
+    # when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
