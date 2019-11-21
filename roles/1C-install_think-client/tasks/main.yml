@@ -41,3 +41,7 @@
     path: /home/{{ ansible_user }}/install 
     state: absent
   become: yes
+
+#- name: add the host to /etc/hosts
+#  shell: echo "192.168.1.100	srv_1c" >> /etc/hosts
+#  become: yes
