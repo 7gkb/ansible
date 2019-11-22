@@ -2,4 +2,3 @@
 #- name: upgrade software on {{ inventory_hostname }}
 #- name: current host is {{ ansible_hostname }}
 - name: current user is {{ ansible_user }}
-ping
