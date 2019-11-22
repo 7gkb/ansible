@@ -40,14 +40,47 @@ pc05-10111-2 ansible_host=192.168.5.232
 pc05-10108-1 ansible_host=192.168.5.233
 pc05-10108-2 ansible_host=192.168.5.234
 pc05-10102 ansible_host=192.168.5.235
+pc02-head_nurse ansible_host=192.168.5.126
+pc02-kdl ansible_host=192.168.5.174
 
-[room24]
-192.168.5.226
+[room1]
+pc05-10101 ansible_host=192.168.5.252
+pc05-10102 ansible_host=192.168.5.235
+
+[room4]
+pc05-10105 ansible_host=192.168.5.248
+pc05-10104 ansible_host=192.168.5.247
+
+[room6]
+pc05-10106 ansible_host=192.168.5.249
+pc05-10107 ansible_host=192.168.5.251
+
+[room9]
+pc05-10108-1 ansible_host=192.168.5.233
+pc05-10108-2 ansible_host=192.168.5.234
 
 [room23]
 pc05-20204 ansible_host=192.168.5.246
 
+[room24]
+pc05-20206 ansible_host=192.168.5.226
+
+[head_nurse]
+pc02-head_nurse ansible_host=192.168.5.126
+
+[kdl]
+pc02-kdl ansible_host=192.168.5.174
+
 [temp]
-#192.168.5.245
-pc05-10111-1 ansible_host=192.168.5.231
-pc05-10111-2 ansible_host=192.168.5.232
+pc02-head_nurse ansible_host=192.168.5.126
+
+#[task:children]
+#room1
+#room4
+#room6
+#room9
+#room24
+
+[task]
+pc05-10108-1 ansible_host=192.168.5.233
+pc05-10105 ansible_host=192.168.5.248

@@ -1,0 +1,14 @@
+---
+# vars file for instdicomscope
+instdicomscope_apps:
+  - dicomscope
+
+instdicomscope_desktop: Dicomscope.desktop
+
+instdicomscope_path: "/home/{{ ansible_user }}/Рабочий стол"
+
+instdicomscope_pathtomedia: /media/{{ ansible_user }}/
+
+instdicomscope_link: /home/{{ ansible_user }}/CD-ROM
+
+instdicomscope_notification: 'export DISPLAY=:0 && zenity --info --text "Установлена или обновлена программа Dicomscope для просмотра медицинских изображений!" && dicomscope'
