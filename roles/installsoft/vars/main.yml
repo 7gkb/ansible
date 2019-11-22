@@ -1,0 +1,4 @@
+---
+# vars file for installsoft
+installsoft_listprograms:
+  - cups-x2go

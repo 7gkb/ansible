@@ -1,0 +1,9 @@
+---
+# vars file for installprinters
+installprinters_listpackages:
+  - kyocera.tar.gz
+  - panasonic.tar.gz
+
+installprinters_startscripts:
+- ['./install.sh', 'kyocera']
+- ['./install-driver', 'panasonic/mccgdi-2.0.10-x86_64']

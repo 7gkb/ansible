@@ -1,0 +1,5 @@
+---
+- hosts: terminal
+  roles:
+    - role: installcryptopro
+      when: ansible_distribution == 'Ubuntu'

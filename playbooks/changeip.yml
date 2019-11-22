@@ -1,0 +1,4 @@
+---
+- hosts: mint
+  roles:
+    - role: changeip

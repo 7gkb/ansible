@@ -1,0 +1,28 @@
+---
+# tasks file for instdicomscope
+- name: Install programs
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    force: yes
+  with_items:
+    - "{{ instdicomscope_apps }}"
+  become: yes
+
+- name: Copy desktop file
+  copy:
+    src: "{{ instdicomscope_desktop }}"
+    dest: "{{ instdicomscope_path }}/{{ instdicomscope_desktop }}"
+    mode: 0750
+
+- name: Create a symbolic link for CDROM
+  file:
+    src: "{{ instdicomscope_pathtomedia }}"
+    dest: "{{ instdicomscope_link }}"
+    state: link
+  become: yes
+
+- name: Notification
+  shell: "{{ instdicomscope_notification }}"
+  async: 10
+  poll: 0

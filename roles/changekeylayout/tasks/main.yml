@@ -1,0 +1,8 @@
+---
+# tasks file for changekeylayout
+- name: Add automation file
+  template: 
+    src: "{{ changekeylayout_keyboard }}.j2"
+    dest: "/{{ changekeylayout_keyboard }}"
+    mode: 0644
+  become: yes

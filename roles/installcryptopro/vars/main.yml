@@ -1,0 +1,28 @@
+---
+# vars file for installcryptopro
+ver: 4.0.9963-5
+
+installcryptopro_listpackages:
+- ['linux-amd64_deb.tgz', 'cryptopro']
+- ['cades_linux_amd64.tar.gz', 'extention']
+
+installcryptopro_utils:
+- csptestf
+- csptest
+- certmgr
+
+installcryptopro_debpackage:
+- cprocsp-pki-cades_2.0.0-1_amd64.deb
+- cprocsp-pki-phpcades_2.0.0-1_amd64.deb
+- cprocsp-pki-plugin_2.0.0-1_amd64.deb
+
+installcryptopro_forpytoken:
+- libpcsclite1
+- pcscd 
+- libccid
+
+installcryptopro_pytoken:
+- "cprocsp-rdr-gui-gtk-64_{{ ver }}_amd64.deb"
+- "cprocsp-rdr-rutoken-64_{{ ver }}_amd64.deb"
+- "cprocsp-rdr-pcsc-64_{{ ver }}_amd64.deb"
+- "lsb-cprocsp-pkcs11-64_{{ ver }}_amd64.deb"

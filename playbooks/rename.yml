@@ -1,0 +1,4 @@
+---
+- hosts: temp
+  roles:
+    - role: rename

@@ -1,0 +1,10 @@
+---
+- hosts: terminal
+  roles:
+   - 1C-install_think-client
+   - rername
+#    - role: "{{ item }}"
+#  with_items:
+#      - 1C-install_think-client
+#      - rername
+    # when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'

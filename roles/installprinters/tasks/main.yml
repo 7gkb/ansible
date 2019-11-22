@@ -1,0 +1,27 @@
+---
+# tasks file for installprinters
+- name: Create directoryes
+  file: 
+    path: /home/{{ ansible_user }}/install
+    state: directory
+
+- name: Unpack the archive for the CryptoPro
+  unarchive:
+    src: "{{ item }}"
+    dest: /home/{{ ansible_user }}/install/
+  with_items:
+    - "{{ installprinters_listpackages }}"
+
+- name: Install printers
+  shell: "{{ item[0] }}"
+  args:
+    chdir: /home/{{ ansible_user }}/install/{{ item[1]}}/
+  with_items:
+    - "{{ installprinters_startscripts }}"
+  become: yes
+
+- name: Remove install folder
+  file: 
+    path: /home/{{ ansible_user }}/install 
+    state: absent
+  become: yes
