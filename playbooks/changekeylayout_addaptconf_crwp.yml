@@ -1,0 +1,6 @@
+---
+- hosts: mint
+  roles:
+    - addaptconf
+    - changekeylayout
+    - crwp
