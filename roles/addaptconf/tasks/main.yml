@@ -1,6 +1,6 @@
 ---
 # tasks file for addaptconf
-- name: Add config file
+- name: Add config file on {{ ansible_distribution }}
   template: 
     src: "{{ addaptconf_pathtoconf }}.j2" 
     dest: "/{{ addaptconf_pathtoconf }}"

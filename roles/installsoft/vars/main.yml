@@ -1,4 +1,11 @@
 ---
 # vars file for installsoft
 installsoft_listprograms:
+  - x2goserver
   - cups-x2go
+  - tmux
+  - mc
+  - htop
+  - nano
+  - rdesktop
+  - 

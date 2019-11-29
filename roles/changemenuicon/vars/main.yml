@@ -1,0 +1,5 @@
+---
+# vars file for changemenuicon
+changemenuicon_svg: start-here.svg
+
+changemenuicon_path: "/usr/share/icons/Ambiant-MATE/apps/22"

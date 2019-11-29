@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Журнал вызовов
+Comment=
+Exec=firefox http://7gkb.ru/testdoclog/index.php?ksec=f7d543c9b824323b84ab11668002f207
+Icon=system-users
+Path=
+Terminal=false
+StartupNotify=false

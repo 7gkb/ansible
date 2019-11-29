@@ -1,0 +1,7 @@
+---
+# tasks file for changemenuicon
+- name: Copy icon file to {{ ansible_host }}
+  copy: 
+    src: "{{ changemenuicon_svg }}"
+    dest: "{{ changemenuicon_path }}/{{ changemenuicon_svg }}"
+  become: yes

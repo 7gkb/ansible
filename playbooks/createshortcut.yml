@@ -1,4 +1,4 @@
 ---
 - hosts: temp
   roles:
-    - role: instdicomscope
+    - role: createshortcut

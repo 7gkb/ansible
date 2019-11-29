@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon=computer
+Icon[ru]=mate-preferences-desktop-display
+Name[ru]=Подключение к KMIS
+Exec=rdesktop 192.168.5.21 -g 1360x720 -k ru -u user -p 2w3e4r! -d ivagkb7 -r printer:Printer
+Name=Подключение к KMIS

@@ -1,0 +1,8 @@
+---
+# vars file for instfreeoffice
+
+instfreeoffice_folder: install
+
+instfreeoffice_pkg: softmaker-freeoffice-2018_973-01_amd64.deb
+
+instfreeoffice_pathtodesktop: "Рабочий стол"

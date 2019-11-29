@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Журнал вызовов
+Comment=
+Exec=firefox http://192.168.5.186/pacient
+Icon=user-info
+Path=
+Terminal=false
+StartupNotify=false
+Name[ru]=Прикрепление

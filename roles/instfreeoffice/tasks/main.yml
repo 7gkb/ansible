@@ -1,0 +1,36 @@
+---
+# tasks file for instfreeoffice
+- name: Copy files
+  copy:
+    src: "{{ instfreeoffice_pkg }}"
+    dest: /home/{{ ansible_user }}/{{ instfreeoffice_folder }}
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0750
+
+- name: Install FreeOffice to {{ ansible_host }}
+  apt:
+    deb: /home/{{ ansible_user }}/{{ instfreeoffice_folder }}/{{ instfreeoffice_pkg }}
+    force: yes
+  become: yes
+
+- name: Fix install freeoffice
+  apt:
+    update_cache: yes
+    dpkg_options: fix-broken
+    force: yes
+  become: yes
+
+- name: Copy files
+  copy:
+    src: shortcuts/
+    dest: /home/{{ ansible_user }}/{{ instfreeoffice_pathtodesktop }}
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0750
+
+- name: Remove install folder
+  file: 
+    path: /home/{{ ansible_user }}/{{ instfreeoffice_folder }}
+    state: absent
+  become: yes

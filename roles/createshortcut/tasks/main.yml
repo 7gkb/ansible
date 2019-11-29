@@ -1,0 +1,9 @@
+---
+# tasks file for createshortcut
+- name: Copy files
+  copy:
+    src: shortcuts/
+    dest: /home/{{ ansible_user }}/{{ createshortcut_pathtodesktop }}
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0750
