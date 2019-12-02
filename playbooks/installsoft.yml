@@ -1,4 +1,4 @@
 ---
-- hosts: mint
+- hosts: temp
   roles:
     - role: installsoft

@@ -8,4 +8,6 @@ installsoft_listprograms:
   - htop
   - nano
   - rdesktop
-  - 
+  - zabbix-agent
+  - smartmontools
+  - firefox
