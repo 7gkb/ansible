@@ -42,6 +42,7 @@ pc05-10108-2 ansible_host=192.168.5.234
 pc05-10102 ansible_host=192.168.5.235
 pc02-head_nurse ansible_host=192.168.5.126
 pc02-kdl ansible_host=192.168.5.174
+pc04-007-01 ansible_host=192.168.5.65
 
 [room1]
 pc05-10101 ansible_host=192.168.5.252
@@ -74,7 +75,8 @@ pc02-kdl ansible_host=192.168.5.174
 [temp]
 #pc02-head_nurse ansible_host=192.168.5.126
 #192.168.108.19
-192.168.5.222
+#192.168.5.222
+192.168.5.65
 
 #[task:children]
 #room1

@@ -11,3 +11,4 @@ installsoft_listprograms:
   - zabbix-agent
   - smartmontools
   - firefox
+  - curl
