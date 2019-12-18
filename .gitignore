@@ -1,1 +1,3 @@
+roles/1C-install_think-client
 roles/**/*.deb
+roles/*/*/*/*.deb
