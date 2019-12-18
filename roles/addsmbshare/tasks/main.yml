@@ -1,0 +1,30 @@
+---
+# tasks file for addsmbshare
+- name: Install the utilites for cifs
+  apt:
+    name: "{{ addsmbshare_listprograms }}"
+    update_cache: yes
+    force: yes
+  become: yes
+
+- name: Copy credential file
+  copy: 
+    src: "{{ addsmbshare_credentialsfile }}"
+    dest: /root/
+  become: yes
+
+- name: Create the folder
+  file:
+    path: "{{ addsmbshare_source }}"
+    state: directory
+    mode: '0777'
+  become: yes
+  
+- name: Add mount
+  mount:
+    path: "{{ addsmbshare_source }}"
+    src: "{{ addsmbshare_destination }}"
+    opts: "credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777"
+    fstype: cifs
+    state: mounted
+  become: yes

@@ -1,0 +1,9 @@
+---
+# vars file for addsmbshare
+addsmbshare_listprograms: cifs-utils
+
+addsmbshare_credentialsfile: ".smbcredentials"
+
+addsmbshare_source: "/mnt/palliativ"
+
+addsmbshare_destination: "//192.168.0.110/reestr_palliativ"

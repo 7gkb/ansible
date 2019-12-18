@@ -17,7 +17,7 @@ host3 ansible_host=192.168.1.202
 
 [mint]
 pc05-20206 ansible_host=192.168.5.226
-pc05-10115 ansible_host=192.168.5.227
+pc00-i0006 ansible_host=192.168.5.227
 pc05-10113 ansible_host=192.168.5.228
 pc05-10112 ansible_host=192.168.5.229
 pc05-10117 ansible_host=192.168.5.237
@@ -43,6 +43,45 @@ pc05-10102 ansible_host=192.168.5.235
 pc02-head_nurse ansible_host=192.168.5.126
 pc02-kdl ansible_host=192.168.5.174
 pc04-007-01 ansible_host=192.168.5.65
+
+[02]
+pc00-i001 ansible_host=192.168.5.233
+
+[04]
+pc01-193865 ansible_host=192.168.5.91
+pc01-193809 ansible_host=192.168.5.92
+pc01-193852 ansible_host=192.168.5.72
+pc01-193886 ansible_host=192.168.5.15
+pc01-193851 ansible_host=192.168.5.94
+pc01-193872 ansible_host=192.168.5.97
+pc01-193840 ansible_host=192.168.5.98
+pc01-193876 ansible_host=192.168.5.192
+pc01-193837 ansible_host=192.168.5.203
+pc01-193878 ansible_host=192.168.5.96
+pc01-193824 ansible_host=192.168.5.175
+pc01-193883 ansible_host=192.168.5.177
+pc01-193867 ansible_host=192.168.5.17
+pc04-007-01 ansible_host=192.168.5.65
+pc01-193772 ansible_host=192.168.5.165
+pc01-193799 ansible_host=192.168.5.102
+pc01-193882 ansible_host=192.168.5.67
+pc01-193871 ansible_host=192.168.5.18
+pc01-193800 ansible_host=192.168.5.191
+pc01-193816 ansible_host=192.168.5.16
+pc01-193854 ansible_host=192.168.5.68
+pc01-193863 ansible_host=192.168.5.19
+pc01-193828 ansible_host=192.168.5.99
+pc01-193848 ansible_host=192.168.5.71
+pc01-193881 ansible_host=192.168.5.78
+pc01-193884 ansible_host=192.168.5.177
+pc01-193841 ansible_host=192.168.5.93
+pc01-193859 ansible_host=192.168.5.77
+pc01-193873 ansible_host=192.168.5.14
+pc01-193888 ansible_host=192.168.5.204
+pc01-193785 ansible_host=192.168.5.101
+pc01-193835 ansible_host=192.168.5.178
+pc01-193787 ansible_host=192.168.5.81
+pc01-193777 ansible_host=192.168.5.80
 
 [room1]
 pc05-10101 ansible_host=192.168.5.252
@@ -76,7 +115,16 @@ pc02-kdl ansible_host=192.168.5.174
 #pc02-head_nurse ansible_host=192.168.5.126
 #192.168.108.19
 #192.168.5.222
-192.168.5.65
+#192.168.5.65
+#192.168.108.182
+#192.168.1.177
+#192.168.1.175
+#192.168.5.233
+#192.168.108.193
+#192.168.5.248
+#192.168.5.249
+#192.168.1.174
+192.168.108.180
 
 #[task:children]
 #room1

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sleep 5
 dev=$(ip r | awk -F 'dev' '{ print $2}' | awk -F ' ' '{print $1}' | grep -v "tun" | head -n1)
 getip=$(ip -f inet a show dev $dev | grep "inet" | awk -F' ' '{ print $2 }' | head -n1)
 getmac=$(ip -f link a show dev $dev | grep "link/ether" | awk -F' ' '{ print $2 }')
