@@ -1,5 +1,5 @@
 ---
-- hosts: sandbox
+- hosts: temp
   roles:
     - role: addsmbshare
 #      when: ansible_distribution == 'Ubuntu'

@@ -4,6 +4,6 @@ addsmbshare_listprograms: cifs-utils
 
 addsmbshare_credentialsfile: ".smbcredentials"
 
-addsmbshare_source: "/mnt/palliativ"
-
-addsmbshare_destination: "//192.168.0.110/reestr_palliativ"
+addsmbshare_sources: 
+- ['/mnt/palliativ', '//192.168.0.110/reestr_palliativ']
+- ['/mnt/7vzr_pol', '//192.168.0.110/ssmp/7vzr_pol']

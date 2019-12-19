@@ -11,15 +11,15 @@
     state: link
   become: yes
 
+- name: Update routes
+  shell: nmcli connection modify "NETWORK" +ipv4.routes "{{ item[0] }} {{ item[1] }}"
+  with_items:
+    - "{{ enableopenvpn_routes }}"
+  become: yes
+  
 - name: Make sure a openvpn service is running
   systemd:
     state: started
     name: "{{ enableopenvpn_service }}"
     enabled: yes
-  become: yes
-
-- name: Update routes
-  shell: nmcli connection modify "NETWORK" +ipv4.routes "{{ item[0] }} {{ item[1] }}"
-  with_items:
-    - "{{ enableopenvpn_routes }}"
   become: yes

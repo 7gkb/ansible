@@ -15,16 +15,20 @@
 
 - name: Create the folder
   file:
-    path: "{{ addsmbshare_source }}"
+    path: "{{ item[0] }}"
     state: directory
     mode: '0777'
+  with_items:
+    - "{{ addsmbshare_sources }}"
   become: yes
   
 - name: Add mount
   mount:
-    path: "{{ addsmbshare_source }}"
-    src: "{{ addsmbshare_destination }}"
-    opts: "credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777"
+    path: "{{ item[0] }}"
+    src: "{{ item[1] }}"
+    opts: "credentials=/root/{{ addsmbshare_credentialsfile }},iocharset=utf8,file_mode=0777,dir_mode=0777"
     fstype: cifs
     state: mounted
+  with_items:
+    - "{{ addsmbshare_sources }}"
   become: yes
