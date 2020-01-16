@@ -1,0 +1,15 @@
+---
+# tasks file for changetime
+- name: Stop time services
+  service:
+   name: systemd-timesyncd
+   state: stoped
+   enabled: no
+  become: yes
+
+- name: Install NTPd
+  apt:
+      name: "{{ changetime_service }}"
+      update_cache: yes
+      force: yes
+    become: yes
