@@ -1,0 +1,26 @@
+---
+# vars file for mountshare
+mountshare_unitmount: "etc/systemd/system/mountshare.mount"
+mountshare_unitauto: "etc/systemd/system/mountshare.automount"
+mountshare_remoteserver: "192.168.5.250"
+mountshare_remoteshare: "/home/{{ ansible_user }}/share"
+mountshare_mountpoint: "/mnt/mountshare"
+mountshare_remoteuser: "{{ ansible_user }}"
+mountshare_mounttype: "sshfs" # Types: sshfs nfs cifs
+
+# NFS
+mountshare_mounttype_nfs: "nfs"
+mountshare_unitwhat_nfs: "{{ mountshare_addresstoserver }}:{{ mountshare_remoteshare }}"
+mountshare_unitoption_nfs: ""
+
+# SAMBA
+mountshare_mounttype_cifs: "cifs"
+mountshare_unitwhat_cifs: ""
+mountshare_unitoption_cifs: "Options=credentials=/home/user/_cred,rw,uid=500,gid=500,noserverino,file_mode=0664,dir_mode=0775,_netdev"
+
+# SSH
+# Options=_netdev,allow_other,IdentityFile={{ path-to-ssh-private-key }},reconnect,ServerAliveInterval=30,ServerAliveCountMax=5,x-systemd.automount,uid=1000,gid=1000 TimeoutSec=60
+mountshare_pathtosshprivatekey: "/home/{{ ansible_user }}/.ssh/id_rsa"
+mountshare_mounttype_sshfs: "fuse.sshfs"
+mountshare_unitoption_sshfs: "Options=_netdev,allow_other,IdentityFile={{ mountshare_pathtosshprivatekey }},reconnect,ServerAliveInterval=30,ServerAliveCountMax=5,x-systemd.automount,uid=1000,gid=1000"
+mountshare_unitwhat_sshfs: "{{ mountshare_remoteuser }}@{{ mountshare_remoteserver }}:{{ mountshare_remoteshare }}"

@@ -1,0 +1,8 @@
+[Unit]
+Description=Automount mountshare
+
+[Automount]
+Where={{ mountshare_mountpoint }}
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+---
+# tasks file for mountshare
+- name: Create a directory for mount point
+  file:
+    path: "{{ mountshare_mountpoint }}"
+    state: directory
+    mode: '0755'
+
+- name: Add Unit file mount
+  template: 
+    src: "{{ mountshare_unitmount }}.j2" 
+    dest: "/{{ mountshare_unitmount }}"
+  become: yes
+  
+  - name: Add Unit file automount
+  template: 
+    src: "{{ mountshare_unitauto }}.j2" 
+    dest: "/{{ mountshare_unitauto }}"
+  become: yes
+  
+
+# Generate an OpenSSH keypair with the default values (4096 bits, rsa)
+- openssh_keypair:
+    path: /tmp/id_ssh_rsa
+    when: mountshare_mounttype == 'sshfs'

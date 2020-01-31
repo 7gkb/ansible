@@ -1,0 +1,14 @@
+[Unit]
+  Description=mountshare
+  Requires=network-online.target
+  After=network-online.service
+
+[Mount]
+	What={{ mountshare_unitwhat_{{ mountshare_mounttype }} }}
+	Where={{ mountshare_mountpoint }}
+	Type={{ mountshare_mounttype_{{ mountshare_mounttype }} }}
+	Options={{ mountshare_unitoption_{{ mountshare_mounttype }} }}
+
+[Install]
+  WantedBy=multi-user.target
+  
