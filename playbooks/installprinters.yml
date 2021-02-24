@@ -1,5 +1,0 @@
----
-- hosts: terminal
-  roles:
-    - role: installprinters
-#      when: ansible_distribution == 'Ubuntu'

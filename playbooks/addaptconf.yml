@@ -1,5 +1,0 @@
----
-- hosts: mint
-  roles:
-    - role: addaptconf
-#      when: ansible_distribution == 'Ubuntu'

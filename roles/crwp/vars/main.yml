@@ -1,8 +1,0 @@
----
-# vars file for crwp
-crwp_install:
-- python-tk
-
-crwp_service: lib/systemd/system/chwp.service
-
-crwp_autostart: ['home/user/.xprofile', '/home/{{ ansible_user }}/.xprofile']

@@ -2,12 +2,12 @@
 # tasks file for 1C-install_think-client
 - name: Copy files
   copy:
-    src: src
-##    src: "{{ item }}"
+##    src: src
+    src: "src/{{ item }}"
     dest: /home/{{ ansible_user }}/install/
 #    recursive: yes
-##  with_items:
-##    - "{{ install_think_client_listpackages }}"
+  with_items:
+    - "{{ install_think_client_listpackages }}"
 
 - name: Prepare for install 1C client
   apt:

@@ -1,5 +1,0 @@
----
-# vars file for addaptconf
-addaptconf_pathtoconf: "etc/apt/apt.conf.d/01proxy"
-
-addaptconf_addresstoserver: "192.168.5.250"

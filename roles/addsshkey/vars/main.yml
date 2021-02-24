@@ -1,3 +1,0 @@
----
-# vars file for addsshkey
-addsshkey_openkey: "{{ lookup('file', '/etc/ansible/key/id_rsa.pub') }}"

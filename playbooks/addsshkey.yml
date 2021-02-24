@@ -1,6 +1,0 @@
----
-#- name: Add openssh key for hosts
-- hosts: addsshkey
-  roles:
-    - addsshkey
-

@@ -1,0 +1,5 @@
+---
+- hosts: pcs
+  roles:
+   - 1C-install_think-client
+   - rename

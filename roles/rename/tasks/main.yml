@@ -1,5 +1,13 @@
 ---
 # tasks file for rename
+- name: Remove old desktop file
+  file: 
+    path: "/home/{{ ansible_user }}/Рабочий стол/{{ item }}"
+    state: absent
+  with_items:
+    - "{{ rename_removefiles }}"
+  become: yes
+
 - name: Add desktop file
   template: 
     src: "home/user/Desktop/{{ item }}.j2"

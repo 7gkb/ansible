@@ -1,7 +1,0 @@
----
-- hosts: temp
-  roles:
-    - rename
-    - addaptconf
-    - changekeylayout
-    - crwp

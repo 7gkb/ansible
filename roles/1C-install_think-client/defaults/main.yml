@@ -1,2 +1,15 @@
 ---
 # defaults file for 1C-install_think-client
+install_think_client_arch: amd64
+install_think_client_name: "1c-enterprise83"
+
+install_think_client_listprepare:
+  - ttf-mscorefonts-installer
+  - imagemagick
+  - libfreetype6
+  - libgsf-1-114
+  - libglib2.0-0
+  - unixodbc
+  - libwebkitgtk-1.0-0
+  - libwebkitgtk-3.0-0
+  

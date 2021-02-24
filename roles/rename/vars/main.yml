@@ -1,12 +1,23 @@
 ---
 # vars file for rename
 rename_files:
-#  - 1cstart.8.3.13-1690.desktop
-#  - 1cstart.8.3.13-1644.desktop
-  - 1cstart.8.3.12-1714.desktop
+  # - 1cstart.8.3.13-1690.desktop
+  # - 1cstart.8.3.13-1644.desktop
+  # - 1cstart.8.3.12-1714.desktop
+  # - 1cstart.8.3.16-1224.desktop
+  # - 1cstart.8.3.13-1926.desktop
+  #- 1cstart.8.3.17-1594.desktop
+  - 1cstart.8.3.17-1386.desktop
+  - 1cstart.8.3.15-1778.desktop
+  - 1cstart.8.3.17-1851.desktop
 
 rename_removefiles:
 #  - 1c-Больница.desktop
 #  - 1c-Рецепты.desktop
-#  - 1c-Документооборот.desktop
+  - 1с-Документооборот.desktop
 #  - 1cstart.8.3.12-1714.desktop
+#  - 1c-Неотложная_помощь_новая.desktop
+  - 1cstart.8.3.16-1224.desktop
+  - 1cstart.8.3.17-1386.desktop
+  - 1cstart.8.3.15-1778.desktop
+  - 1cstart.8.3.17-1851.desktop

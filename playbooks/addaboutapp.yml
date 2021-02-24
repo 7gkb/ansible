@@ -1,3 +1,0 @@
-- hosts: mint
-  roles:
-    - role: addaboutapp

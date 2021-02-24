@@ -1,6 +1,0 @@
----
-# tasks file for copyfiles
-- name: Copy files
-  copy: 
-    src: "xpb210.ppd"
-    dest: /home/{{ ansible_user }}/Загрузки

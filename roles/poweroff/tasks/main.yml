@@ -1,5 +1,0 @@
----
-# tasks file for poweroff
-- name: Power off
-  shell: poweroff
-  become: yes
