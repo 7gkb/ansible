@@ -14,7 +14,7 @@ rename_files:
 rename_removefiles:
 #  - 1c-Больница.desktop
 #  - 1c-Рецепты.desktop
-  - 1с-Документооборот.desktop
+#  - 1с-Документооборот.desktop
 #  - 1cstart.8.3.12-1714.desktop
 #  - 1c-Неотложная_помощь_новая.desktop
   - 1cstart.8.3.16-1224.desktop
